@@ -121,7 +121,6 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
-    console.log(this.signatoryData)
     this.busy = false
   }
 }
