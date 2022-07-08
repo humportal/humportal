@@ -106,6 +106,11 @@ export default {
           label: 'Publishing to IATI monthly',
           sortable: true
         },
+        {
+          key: 'timeliness',
+          label: 'Timeliness',
+          sortable: true
+        },
       ]
     }
   },
@@ -116,6 +121,7 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
+    console.log(this.signatoryData)
     this.busy = false
   }
 }
