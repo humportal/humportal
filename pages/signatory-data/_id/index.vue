@@ -24,6 +24,10 @@
                 <b-td>{{ publisher.frequency }}</b-td>
               </b-tr>
               <b-tr>
+                <b-th>Timeliness</b-th>
+                <b-td>{{ publisher.timeliness }}</b-td>
+              </b-tr>
+              <b-tr>
                 <b-th>Organisation Identifier</b-th>
                 <b-td>{{ publisher.iatiOrganisationID }}</b-td>
               </b-tr>
