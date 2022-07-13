@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const baseURL = 'https://humportal.org'
 const apiURL = 'https://raw.githubusercontent.com/devinit/humportal-data/gh-pages'
-const analyticsURL = 'https://stats.codeforiati.org'
+const analyticsURL = 'https://raw.githubusercontent.com/codeforIATI/IATI-Stats-public/gh-pages'
 
 export const state = () => ({
   stats: {
