@@ -17,11 +17,11 @@
     "@nuxtjs/gtm": "^2.4.0",
     "bootstrap": "^4.6.2",
     "bootstrap-vue": "^2.22.0",
-    "chartjs-plugin-datalabels": "^0.7.0",
     "chart.js": "^2.9.4",
+    "chartjs-plugin-datalabels": "^0.7.0",
     "core-js": "^3.24.1",
     "nuxt": "^2.15.8",
-    "vue": "2.7.8",
+    "vue": "2.7.10",
     "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
