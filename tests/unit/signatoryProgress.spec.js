@@ -9,6 +9,8 @@ import { actions, mutations } from "../../store/index";
 import Vuex from "vuex";
 import BootstrapVue from "bootstrap-vue";
 import SignatoryProgress from "../../pages/signatory-progress/index.vue";
+import SignatoryProgressLineChart from "../../components/SignatoryProgressLineChart.vue";
+
 const localVue = createLocalVue();
 Vue.use(Vuex);
 
@@ -99,6 +101,7 @@ describe("index.vue", () => {
       },
       stubs: {
         NuxtLink: RouterLinkStub,
+        SignatoryProgressLineChart: true,
       },
     });
   });
@@ -113,6 +116,10 @@ describe("index.vue", () => {
   it("checks if the download button is rendered", async () => {
     const button = await wrapper.find("#download-btn");
     expect(await button.text()).toBe("Download CSV");
+  });
+
+  it("checks if the Chart is loaded", () => {
+    expect(wrapper.find(SignatoryProgressLineChart).exists()).toBe(true);
   });
 
   it("checks if the table is rendered properly", async () => {

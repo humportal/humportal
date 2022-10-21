@@ -71,6 +71,7 @@ import DecorationLanding from '../../components/DecorationLanding.vue'
 export default {
   components: {
     DecorationLanding,
+    SignatoryProgressLineChart
   },
   data() {
     return {
