@@ -12,7 +12,7 @@
 </style>
 <script>
 
-import PieChart from '~/components/charts/pie-chart'
+import PieChart from './charts/pie-chart'
 export default {
   props: ['labels', 'data'],
   components: {

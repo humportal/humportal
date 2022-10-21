@@ -16,7 +16,7 @@
             <h2>Signatories meeting data publication CCTRIs</h2>
           </b-col>
           <b-col lg="3" class="text-lg-right">
-            <b-btn :href="signatoryProgressDataCSVURL" variant="primary">
+            <b-btn :href="signatoryProgressDataCSVURL" variant="primary" id="download-btn">
               <font-awesome-icon :icon="['fas', 'download']" /> Download CSV
             </b-btn>
           </b-col>
@@ -25,6 +25,7 @@
           :fields="signatoryProgressFields"
           :items="signatoryProgressData"
           :busy="busy"
+          id="data-table"
           >
           <template #table-busy>
             <div class="text-center text-muted my-2">
@@ -64,12 +65,12 @@
 </template>
 
 <script>
-import SignatoryProgressLineChart from '~/components/SignatoryProgressLineChart.vue'
+import SignatoryProgressLineChart from '../../components/SignatoryProgressLineChart.vue'
 import { mapState } from 'vuex'
-import DecorationLanding from '~/components/DecorationLanding.vue'
+import DecorationLanding from '../../components/DecorationLanding.vue'
 export default {
   components: {
-    DecorationLanding
+    DecorationLanding,
   },
   data() {
     return {

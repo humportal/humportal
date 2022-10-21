@@ -55,18 +55,18 @@ describe("index.vue", () => {
     expect(header.text()).toBe("Welcome to the IATI Humanitarian Data Portal");
   });
 
-  it("checks if the correct figure is rendered for Signatories", () => {
-    const firstStat = wrapper.find(".stat.red-color");
+  it("checks if the correct figure is rendered for Signatories", async () => {
+    const firstStat = await wrapper.find(".stat.red-color");
     expect(firstStat.text()).toBe("65");
   });
 
-  it("checks if the correct figure is rendered for IATI", () => {
-    const secondStat = wrapper.find(".stat.blue-color");
+  it("checks if the correct figure is rendered for IATI", async () => {
+    const secondStat = await wrapper.find(".stat.blue-color");
     expect(secondStat.text()).toBe("56");
   });
 
-  it("checks if the correct figure is rendered for Humanitarian", () => {
-    const thirdStat = wrapper.find(".stat.green-color");
+  it("checks if the correct figure is rendered for Humanitarian", async () => {
+    const thirdStat = await wrapper.find(".stat.green-color");
     expect(thirdStat.text()).toBe("53");
   });
 });
