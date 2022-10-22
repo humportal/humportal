@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "test:unit": "vue-cli-service test:unit --runInBand --detectOpenHandles",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "dev": "nuxt",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider nuxt",
     "gen-subdomain": "DEPLOY_ENV=WITH_SUBFOLDER nuxt generate",
     "generate": "nuxt generate",
     "start": "nuxt start"
@@ -22,7 +22,7 @@
     "chartjs-plugin-datalabels": "^0.7.0",
     "core-js": "^3.24.1",
     "nuxt": "^2.15.8",
-    "vue": "2.7.10",
+    "vue": "2.7.13",
     "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
