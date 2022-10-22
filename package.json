@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider nuxt build",
     "test:unit": "vue-cli-service test:unit --runInBand --detectOpenHandles",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider nuxt",
     "gen-subdomain": "DEPLOY_ENV=WITH_SUBFOLDER nuxt generate",
-    "generate": "nuxt generate",
-    "start": "nuxt start"
+    "generate": "NODE_OPTIONS=--openssl-legacy-provider nuxt generate",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider nuxt start"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
