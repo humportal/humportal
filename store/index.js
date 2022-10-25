@@ -65,10 +65,3 @@ export const actions = {
     commit("setMetadata", data);
   },
 };
-
-// Vue.use(Vuex);
-// export default new Vuex.Store({
-//   state,
-//   actions,
-//   mutations,
-// });
