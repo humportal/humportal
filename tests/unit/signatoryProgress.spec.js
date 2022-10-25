@@ -5,7 +5,7 @@ import {
   createLocalVue,
   RouterLinkStub,
 } from "@vue/test-utils";
-import { actions, mutations } from "../../store/index";
+import { state, mutations } from "../../store/index";
 import Vuex from "vuex";
 import BootstrapVue from "bootstrap-vue";
 import SignatoryProgress from "../../pages/signatory-progress/index.vue";
@@ -13,10 +13,6 @@ import SignatoryProgressLineChart from "../../components/SignatoryProgressLineCh
 
 const localVue = createLocalVue();
 Vue.use(Vuex);
-
-const apiURL = "https://humportal.github.io/humportal-data";
-const analyticsURL =
-  "https://raw.githubusercontent.com/codeforIATI/IATI-Stats-public/gh-pages";
 
 const data = {
   busy: false,
@@ -68,19 +64,14 @@ const data = {
     },
   ],
 };
+const actions = {
+  loadSignatoryProgressData: async () => {
+    const _data = await require('../fixtures/signatories-progress.json')
+    $store.commit('setSignatoryProgressData', _data)
+  }
+}
 const $store = new Vuex.Store({
-  state: {
-    stats: {
-      signatories: 65,
-      iati: 56,
-      humanitarian: 53,
-    },
-    signatoryData: [],
-    signatoryProgressData: [],
-    metadata: {},
-    analyticsURL: analyticsURL,
-    apiURL: apiURL,
-  },
+  state,
   actions,
   mutations,
 });
