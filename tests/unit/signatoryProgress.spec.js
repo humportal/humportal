@@ -65,4 +65,14 @@ describe("index.vue", () => {
     const table = await wrapper.find("#data-table");
     expect(await table.exists()).toBe(true);
   });
+
+  it("checks if the table headers are rendered", async () => {
+    const th = await wrapper.find("#data-table tr:nth-child(2) th:nth-child(2)");
+    expect(th.text()).toBe("Total no. of Grand Bargain signatories");
+  });
+
+  it("checks if one row is rendered", async () => {
+    const tr = await wrapper.findAll("#data-table tbody tr");
+    expect(tr).toHaveLength(1);
+  });
 });
