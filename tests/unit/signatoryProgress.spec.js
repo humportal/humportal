@@ -120,7 +120,7 @@ describe("index.vue", () => {
   });
 
   it("checks if the Chart is loaded", () => {
-    expect(wrapper.find(SignatoryProgressLineChart).exists()).toBe(true);
+    expect(wrapper.findComponent(SignatoryProgressLineChart).exists()).toBe(true);
   });
 
   it("checks if the table is rendered properly", async () => {
