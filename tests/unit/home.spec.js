@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { mount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
-import { actions, mutations, state } from "../../store/index";
+import { mutations, state } from "../../store/index";
 import Vuex from "vuex";
 import BootstrapVue from "bootstrap-vue";
 import Home from "../../pages/index.vue";
@@ -8,22 +8,18 @@ import Home from "../../pages/index.vue";
 const localVue = createLocalVue();
 Vue.use(Vuex);
 
-const apiURL = "https://humportal.github.io/humportal-data";
-const analyticsURL =
-  "https://raw.githubusercontent.com/codeforIATI/IATI-Stats-public/gh-pages";
-const $store = new Vuex.Store({
-  state: {
-    stats: {
-      signatories: 65,
-      iati: 56,
-      humanitarian: 53,
-    },
-    signatoryData: [],
-    signatoryProgressData: [],
-    metadata: {},
-    analyticsURL: analyticsURL,
-    apiURL: apiURL,
+const actions = {
+  loadHomepageStats: async () => {
+    const _data = await require('../fixtures/homepage.json')
+    $store.commit('setHomepageStats', _data)
   },
+  loadMetadata: async () => {
+    const _data = await require('../fixtures/metadata.json')
+    $store.commit('setMetadata', _data)
+  }
+}
+const $store = new Vuex.Store({
+  state,
   actions,
   mutations,
 });
