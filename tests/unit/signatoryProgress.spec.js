@@ -91,7 +91,7 @@ describe("index.vue", () => {
     localVue.use(Vuex);
     localVue.use(BootstrapVue);
 
-    wrapper = shallowMount(SignatoryProgress, {
+    wrapper = mount(SignatoryProgress, {
       localVue,
       data() {
         return data;
@@ -102,6 +102,7 @@ describe("index.vue", () => {
       stubs: {
         NuxtLink: RouterLinkStub,
         SignatoryProgressLineChart: true,
+        FontAwesomeIcon: true
       },
     });
   });
