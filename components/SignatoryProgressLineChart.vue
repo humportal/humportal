@@ -3,7 +3,7 @@
     <LineChart
       :data="chartData"
       :options="chartOptions"
-      class="line-chart" id="line-chart"></LineChart>
+      class="line-chart"></LineChart>
   </div>
 </template>
 <style scoped>
