@@ -52,7 +52,7 @@
 <script>
 
 import { mapState } from 'vuex'
-import DecorationLanding from '~/components/DecorationLanding.vue'
+import DecorationLanding from '../components/DecorationLanding.vue'
 export default {
   components: {
     DecorationLanding

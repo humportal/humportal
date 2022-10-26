@@ -1,5 +1,5 @@
 <template>
-  <div class="line-chart-container">
+  <div class="line-chart-container" >
     <LineChart
       :data="chartData"
       :options="chartOptions"
@@ -18,7 +18,7 @@
 
 </style>
 <script>
-import LineChart from '~/components/charts/line-chart'
+import LineChart from './charts/line-chart'
 export default {
   name: 'SignatoryProgressLineChart',
   components: {
