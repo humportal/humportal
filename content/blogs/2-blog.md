@@ -1,10 +1,8 @@
 ---
-title: Somalia Local Activity Explorer
-date: 2021-07-27
-image: https://iati-3w.humportal.org/_nuxt/img/where.fd8b0b4.png
-url: https://iati-3w.humportal.org/
-category: feature
-description: This prototype explorer throws a spotlight on the work of local and national aid actors in Somalia,...
+title: Improving the visibility of local and national actors in humanitarian aid data
+date: 2021-07-26
+image:
+url: https://devinit.org/resources/improving-visibility-local-national-actors-humanitarian-aid-data/
+category: blog
+description: The limited visibility of local and national organisations in humanitarian open aid data adds to the challenges of meeting and tracking the Grand Bargain commitment to provide more direct support to local and national actors. In support of the Grand Bargain transparency workstream and with funding from the Netherlands’ Ministry of Foreign Affairs, Development Initiatives (DI) explored the technical options for increasing the visibility of local and national actors in International Aid Transparency Initiative (IATI) data. This report highlights the technical methodology we pursued through our prototype tool development, key findings and recommendations for next steps.
 ---
-
-This prototype explorer throws a spotlight on the work of local and national aid actors in Somalia, and their relationships with regional and international partners. It combines the monthly humanitarian Somalia 3W (Who? What? Where?) reports compiled by UN OCHA, and the Somalia-focused activities that organisations self-publish through the International Aid Transparency Initiative (IATI).

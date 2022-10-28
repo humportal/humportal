@@ -8,29 +8,35 @@
                 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
                 Aldus PageMaker including versions of Lorem Ipsum.</p>
             <b-row style="margin-top: 50px">
-                <div v-for="blog of blogs" :key="blog.slug">
+                <b-card-group v-for="blog of blogs" :key="blog.slug" column>
                     <b-card style="max-width: 20rem;" class="mb-2 blog-card">
                         <b-card-img-lazy :src="blog.image" class="card-img" top/>
                         <b-card-title>{{blog.title}}</b-card-title>
                         <b-card-sub-title>{{blog.category}}</b-card-sub-title>
-                        <b-card-text>
+                        <b-card-text class="card-text">
                             {{blog.description}}
                         </b-card-text>
                 
                         <b-button :href="blog.url" variant="primary">Explore Data</b-button>
                     </b-card>
-                </div>
+                </b-card-group>
             </b-row>
         </b-container>
 </template>
 <style>
 .blog-card{
-    width: 20rem;
     margin: 0 5px;
+    width: 20rem;
     display: flex;
 }
 .card-img{
     width: 10rem;
+}
+.card-text{
+    height: 100px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
 }
 </style>
 <script>
