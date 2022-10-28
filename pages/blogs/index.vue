@@ -7,29 +7,36 @@
                 electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
                 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
                 Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <b-row gutter>
-                <div v-for="blog of blogs" :title="blog.title" :key="blog.slug">
-                    <NuxtLink :to="`blogs/${blog.slug}`">
-                        <b-card class="blog-card">
-                            <b-card-text>
-                                {{ blog.title }}
-                            </b-card-text>
-                        </b-card>
-                    </NuxtLink>
+            <b-row style="margin-top: 50px">
+                <div v-for="blog of blogs" :key="blog.slug">
+                    <b-card style="max-width: 20rem;" class="mb-2 blog-card">
+                        <b-card-img-lazy :src="blog.image" class="card-img" top/>
+                        <b-card-title>{{blog.title}}</b-card-title>
+                        <b-card-sub-title>{{blog.category}}</b-card-sub-title>
+                        <b-card-text>
+                            {{blog.description}}
+                        </b-card-text>
+                
+                        <b-button :href="blog.url" variant="primary">Explore Data</b-button>
+                    </b-card>
                 </div>
             </b-row>
         </b-container>
 </template>
 <style>
 .blog-card{
-    margin: 0 10px;
+    width: 20rem;
+    margin: 0 5px;
+    display: flex;
+}
+.card-img{
+    width: 10rem;
 }
 </style>
 <script>
 export default {
     async asyncData({ $content}) {
         const blogs = await $content('blogs')
-        .only(['title', 'description', 'slug'])
         .sortBy('createAt', 'des')
         .fetch()
         return { blogs }

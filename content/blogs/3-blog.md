@@ -1,11 +1,10 @@
 ---
-title: Third Card
-description: You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+title: Somalia Local Activity Explorer
+date: 2021-07-27
+image: https://iati-3w.humportal.org/_nuxt/img/where.fd8b0b4.png
+url: https://iati-3w.humportal.org/
+category: feature
+description: This prototype explorer throws a spotlight on the work of local and national aid actors in Somalia,...
 ---
 
-#One morning, when Gregor Samsa woke from troubled dreams.
-One morning, when Gregor Samsa woke from troubled dreams, he found himself _transformed_ in his bed into a horrible [vermin](http://en.wikipedia.org/wiki/Vermin "Wikipedia Vermin"). He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover **strong** it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, link waved abouthelplessly as he looked. <cite>“What's happened to me?”</cite> he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls.</p>
-
-## The bedding was hardly able to cover it.
-
-It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer a solid fur muff into which her entire forearm disappeared..
+This prototype explorer throws a spotlight on the work of local and national aid actors in Somalia, and their relationships with regional and international partners. It combines the monthly humanitarian Somalia 3W (Who? What? Where?) reports compiled by UN OCHA, and the Somalia-focused activities that organisations self-publish through the International Aid Transparency Initiative (IATI).

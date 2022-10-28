@@ -1,23 +1,10 @@
 ---
-title: First Card
-description: You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+title: Somalia Local Activity Explorer
+date: 2021-07-27
+image: https://iati-3w.humportal.org/_nuxt/img/where.fd8b0b4.png
+url: https://iati-3w.humportal.org/
+category: feature
+description: This prototype explorer throws a spotlight on the work of local and national aid actors in Somalia,...
 ---
 
-<!--more-->
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+This prototype explorer throws a spotlight on the work of local and national aid actors in Somalia, and their relationships with regional and international partners. It combines the monthly humanitarian Somalia 3W (Who? What? Where?) reports compiled by UN OCHA, and the Somalia-focused activities that organisations self-publish through the International Aid Transparency Initiative (IATI).
