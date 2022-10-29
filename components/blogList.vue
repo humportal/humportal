@@ -1,0 +1,50 @@
+<template>
+
+    <b-row style="margin-top: 50px" align-h="center">
+        <b-card-group v-for="blog of dataList" :key="blog.slug" column>
+            <NuxtLink :to="`blogs/${blog.slug}`">
+                <b-card style="max-width: 20rem;" class="mb-2 blog-card">
+                    <b-card-img-lazy :src="blog.image" class="card-img" top />
+                    <b-card-title>{{ blog.title }}</b-card-title>
+                    <b-badge :variant="`${blog.category === 'blog' ? 'success' : 'warning'}`">{{ blog.category }}
+                    </b-badge>
+                    <b-card-text class="card-text">
+                        {{ blog.description }}
+                    </b-card-text>
+                    <b-button :href="blog.url" variant="primary">Explore Data</b-button>
+                </b-card>
+            </NuxtLink>
+        </b-card-group>
+    </b-row>
+</template>
+<script>
+export default {
+    name: 'BlogList',
+    props: ['dataList', 'headText']
+
+}
+</script>
+<style>
+.blog-card {
+    margin: 0 5px;
+    width: 20rem;
+    display: flex;
+    color: #141414;
+}
+
+.card-group a:hover {
+    text-decoration: none;
+}
+
+.card-img {
+    width: 10rem;
+}
+
+.card-text {
+    height: 100px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    margin: 10px 0;
+}
+</style>
