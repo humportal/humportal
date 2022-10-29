@@ -7,7 +7,7 @@
                 electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
                 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
                 Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <b-row style="margin-top: 50px">
+            <b-row style="margin-top: 50px" align-h="center">
                 <b-card-group v-for="blog of blogs" :key="blog.slug" column>
                     <NuxtLink :to="`blogs/${blog.slug}`">
                         <b-card style="max-width: 20rem;" class="mb-2 blog-card">
@@ -26,33 +26,30 @@
         </b-container>
 </template>
 <style>
-.blog-card {
+.blog-card{
     margin: 0 5px;
     width: 20rem;
     display: flex;
     color: #141414;
 }
-
-.card-group a:hover {
+.card-group a:hover{
     text-decoration: none;
 }
-
-.card-img {
+.card-img{
     width: 10rem;
 }
-
-.card-text {
+.card-text{
     height: 100px;
     overflow: hidden;
     /* white-space: nowrap; */
     text-overflow: ellipsis;
+    margin: 10px 0;
 }
 </style>
 <script>
 export default {
     async asyncData({ $content}) {
         const blogs = await $content('blogs')
-        .sortBy('createAt', 'des')
         .fetch()
         return { blogs }
     },
