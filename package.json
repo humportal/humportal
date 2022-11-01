@@ -8,7 +8,7 @@
     "start": "nuxt start",
     "test:unit": "vue-cli-service test:unit --runInBand --detectOpenHandles",
     "generate": "nuxt generate",
-    "gen-subdomain": "DEPLOY_ENV=WITH_SUBFOLDER nuxt generate",
+    "gen-subfolder": "DEPLOY_ENV=/humportal-dev/ nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
