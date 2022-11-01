@@ -30,10 +30,12 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         force_orphan: true
-    - name: Deploy (dev) 🚀
+    - name: Deploy (prepare)
       if: github.ref == 'refs/heads/dev'
       run:
         rm dist/CNAME
+    - name: Deploy (dev) 🚀
+      if: github.ref == 'refs/heads/dev'
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
