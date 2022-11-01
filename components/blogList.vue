@@ -1,5 +1,4 @@
 <template>
-
     <b-row style="margin-top: 50px" align-h="center">
         <b-card-group v-for="blog of dataList" :key="blog.slug" column>
             <NuxtLink :to="`blogs/${blog.slug}`">
@@ -9,7 +8,7 @@
                     <b-card-text class="card-text lead">
                         {{ blog.summary }}
                     </b-card-text>
-                    <b-button :href="blog.url" variant="primary">Explore Data</b-button>
+                    <NuxtLink :to="`blogs/${blog.slug}`" variant="primary"><b-button variant="primary">Read More</b-button></NuxtLink>
                 </b-card>
             </NuxtLink>
         </b-card-group>
