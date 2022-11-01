@@ -1,6 +1,6 @@
-const routerBase = process.env.DEPLOY_ENV === 'WITH_SUBFOLDER' ? {
+const routerBase = process.env.DEPLOY_ENV != undefined ? {
   router: {
-    base: '/humportal/'
+    base: process.env.DEPLOY_ENV
   }
 } : {}
 export default {
