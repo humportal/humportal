@@ -1,0 +1,27 @@
+name: Build humportal.org
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install javascript dependencies
+      run: |
+        npm install
+    - name: Run tests
+      run: |
+        npm run test:unit
+    - name: Run build
+      run: |
+        npm run generate
+    - name: Deploy
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        force_orphan: true

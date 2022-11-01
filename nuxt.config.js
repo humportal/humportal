@@ -1,11 +1,8 @@
-const routerBase =
-  process.env.DEPLOY_ENV === "WITH_SUBFOLDER"
-    ? {
-        router: {
-          base: "/humportal/",
-        },
-      }
-    : {};
+const routerBase = process.env.DEPLOY_ENV != undefined ? {
+  router: {
+    base: process.env.DEPLOY_ENV
+  }
+} : {}
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
