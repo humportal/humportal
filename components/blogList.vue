@@ -6,10 +6,8 @@
                 <b-card style="max-width: 20rem;" class="mb-2 blog-card mx-1" >
                     <b-card-img-lazy :src="blog.image" class="card-img" top />
                     <b-card-title>{{ blog.title }}</b-card-title>
-                    <b-badge :variant="`${blog.category === 'blog' ? 'success' : 'warning'}`">{{ blog.category }}
-                    </b-badge>
                     <b-card-text class="card-text lead">
-                        {{ blog.description }}
+                        {{ blog.summary }}
                     </b-card-text>
                     <b-button :href="blog.url" variant="primary">Explore Data</b-button>
                 </b-card>
@@ -40,10 +38,6 @@ export default {
 }
 
 .card-text {
-    height: 100px;
-    overflow: hidden;
-    /* white-space: nowrap; */
-    text-overflow: ellipsis;
     margin: 10px 0;
 }
 </style>
