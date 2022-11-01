@@ -46,7 +46,7 @@
         <DecorationLanding />
       </b-col>
     </b-row>
-    <h3 class="blog-headline">Featured Blogs</h3>
+    <h3 class="blog-headline">Updates</h3>
     <BlogList :data-list="blogs"/>
   </b-container>
 </template>
