@@ -1,8 +1,11 @@
-const routerBase = process.env.DEPLOY_ENV != undefined ? {
-  router: {
-    base: process.env.DEPLOY_ENV
-  }
-} : {}
+const routerBase =
+  process.env.DEPLOY_ENV != undefined
+    ? {
+        router: {
+          base: process.env.DEPLOY_ENV,
+        },
+      }
+    : {};
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -45,6 +48,7 @@ export default {
         "faTimes",
         "faInfoCircle",
         "faDownload",
+        "faExternalLinkAlt",
       ],
     },
   },
