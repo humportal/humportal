@@ -12,7 +12,9 @@
         </b-row>
       </b-col>
     </b-row>
-    <article>{{ blog.description }}</article>
+    <article>
+      <nuxt-content :document="blog"/>
+    </article>
     <!-- <nuxt-content :document="blog"/> -->
   </b-jumbotron>
 </template>
