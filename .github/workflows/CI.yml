@@ -16,21 +16,9 @@ jobs:
     - name: Run tests
       run: |
         npm run test:unit
-    - name: Run build
-      if: ${{ github.ref != 'refs/heads/dev' }}
-      run: |
-        npm run generate
     - name: Run build (dev)
-      if: ${{ github.ref == 'refs/heads/dev' }}
       run: |
         npm run gen-subfolder
-    - name: Deploy
-      if: ${{ github.ref == 'refs/heads/main' }}
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        force_orphan: true
     - name: Deploy (prepare)
       if: github.ref == 'refs/heads/dev'
       run:
