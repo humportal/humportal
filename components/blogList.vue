@@ -4,11 +4,13 @@
             <!-- <NuxtLink :to="`blogs/${blog.slug}`"> -->
                 <b-card style="max-width: 20rem;" class="mb-2 blog-card mx-1" >
                     <b-card-img-lazy :src="blog.image" class="card-img" top />
-                    <b-card-title>{{ blog.title }}</b-card-title>
-                    <b-card-text class="card-text lead">
+                    <b-card-title class="text-monospace lead font-weight-bold">{{ blog.title }}</b-card-title>
+                    <b-card-text class="card-text ">
                         {{ blog.summary }}
                     </b-card-text>
-                    <NuxtLink :to="`blogs/${blog.slug}`" variant="primary"><b-button variant="primary">Read More</b-button></NuxtLink>
+                    <NuxtLink :to="`blogs/${blog.slug}`">
+                        <b-button variant="primary">Read More</b-button>
+                    </NuxtLink>
                 </b-card>
             <!-- </NuxtLink> -->
         </b-card-group>
@@ -24,7 +26,7 @@ export default {
 <style>
 .blog-card {
     width: 20rem;
-    display: flex;
+    height: max-content;
     color: #141414;
 }
 
@@ -38,5 +40,7 @@ export default {
 
 .card-text {
     margin: 10px 0;
+    font-size: 18px;
 }
+
 </style>
