@@ -6,6 +6,8 @@ const baseURL = "https://humportal.org";
 const apiURL = "https://humportal.github.io/humportal-data";
 const analyticsURL =
   "https://raw.githubusercontent.com/codeforIATI/IATI-Stats-public/gh-pages";
+const identifierURL =
+  "https://stats-dev.codeforiati.org/current/aggregated-publisher/fcdo/";
 
 export const state = () => ({
   stats: {
@@ -17,7 +19,8 @@ export const state = () => ({
   signatoryProgressData: [],
   metadata: {},
   analyticsURL: analyticsURL,
-  apiURL: apiURL
+  apiURL: apiURL,
+  identifierURL: identifierURL,
 });
 
 export const mutations = {
