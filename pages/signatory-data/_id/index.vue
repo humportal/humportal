@@ -120,11 +120,11 @@
         <b-row>
           <b-col>
             <h2>Receiver organisations</h2>
-            <b-table sticky-header striped hover :fields="idFields" :items="receiverOrgId"></b-table>
+            <b-table sticky-header striped hover :fields="idFields" :items="receiver_data"></b-table>
           </b-col>
           <b-col>
             <h2>Implementing Organisations</h2>
-            <b-table sticky-header striped hover :fields="idFields" :items="implementingOrgId"></b-table>
+            <b-table sticky-header striped hover :fields="idFields" :items="implementer_data"></b-table>
           </b-col>
 
         </b-row>
@@ -149,9 +149,8 @@ export default {
   data() {
     return {
       idFields: ['Prefix', 'Number',],
-        items: [
-          { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-        ],
+      receiver_data: {},
+      implementer_data: {},
       busy: true,
       activities: null,
       humanitarian: {},
@@ -167,30 +166,9 @@ export default {
         pledges: "Whether the transaction is a pledge (transaction types 12 or 13).",
         traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier."
       },
-      receiver_data: {},
-      implementer_data: {},
-    }
+          }
   },
   computed: {
-    receiverOrgId(){
-      let newArr = Object.entries(this.receiver_data)
-      let items = []
-      newArr.forEach(el => {
-        items.push({Prefix: el[0], Number: el[1]})
-      })
-      return items
-
-    },
-    implementingOrgId(){
-      let newArr = Object.entries(this.implementer_data)
-      let items = []
-      newArr.forEach(el => {
-        items.push({Prefix: el[0], Number: el[1]})
-      })
-      return items
-
-    },
-
     transactions() {
       return Object.values(this.codelist_values['.//transaction/transaction-type/@code']).reduce((total, item) =>{
         return total + item
@@ -278,12 +256,12 @@ export default {
     async loadReceiverData() {
       const {data} = await axios
         .get(`${this.identifierURL}/receiver_org_valid_prefixes.json`)
-      this.receiver_data = data
+      this.receiver_data = Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
     async loadImplementerData() {
       const {data} = await axios
         .get(`${this.identifierURL}/implementing_org_valid_prefixes.json`)
-      this.implementer_data= data
+      this.implementer_data= Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
   },
   async mounted() {
