@@ -46,6 +46,8 @@
         <DecorationLanding />
       </b-col>
     </b-row>
+    <h3 class="blog-headline">Updates</h3>
+    <BlogList :data-list="blogs"/>
   </b-container>
 </template>
 
@@ -53,9 +55,14 @@
 
 import { mapState } from 'vuex'
 import DecorationLanding from '../components/DecorationLanding.vue'
+import BlogList from '../components/blogList.vue'
 export default {
+    async asyncData({ $content}) {
+        const blogs = await $content('blogs').limit(3).fetch()
+        return { blogs }
+    },
   components: {
-    DecorationLanding
+    DecorationLanding,
   },
   data() {
     return {
@@ -111,5 +118,8 @@ export default {
   font-family: Inter;
   font-weight: 500;
   letter-spacing: -0.5px;
+}
+.blog-headline{
+  text-align: center;
 }
 </style>
