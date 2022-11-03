@@ -119,11 +119,11 @@
         </b-row>
         <b-row>
           <b-col>
-            <h2>Receiver organisations</h2>
+            <h4 class="lead">Receiver organisations</h4>
             <b-table sticky-header striped hover :fields="idFields" :items="receiver_data"></b-table>
           </b-col>
           <b-col>
-            <h2>Implementing Organisations</h2>
+            <h4 class="lead">Implementing Organisations</h4>
             <b-table sticky-header striped hover :fields="idFields" :items="implementer_data"></b-table>
           </b-col>
 
