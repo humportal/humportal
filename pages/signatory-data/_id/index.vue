@@ -116,6 +116,10 @@
               :labels="['Activities without traceability', 'Activities with traceability']"
               :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
           </b-col>
+          <b-col md="6">
+            <SummaryPieChart :labels="['Publisher', 'Denominator']" :data="[this.leftChart.publisher, this.leftChart.denominator]">
+            </SummaryPieChart>
+          </b-col>
         </b-row>
         <b-row>
           <b-col>
@@ -151,6 +155,10 @@ export default {
       idFields: ['Prefix', 'Number',],
       receiver_data: {},
       implementer_data: {},
+      leftChart: {
+        publisher: 0,
+        denominator: 0
+      },
       busy: true,
       activities: null,
       humanitarian: {},
@@ -232,6 +240,9 @@ export default {
     ...mapState(['signatoryData', 'analyticsURL', 'identifierURL'])
   },
   methods: {
+    kFormatter(num) {
+      return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num)
+    },
     async loadSignatoryActivities() {
       const { data } = await axios
         .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/activities.json`)
@@ -255,14 +266,29 @@ export default {
     // Getting Receiver organizations data
     async loadReceiverData() {
       const {data} = await axios
-        .get(`${this.identifierURL}/receiver_org_valid_prefixes.json`)
+        .get(`${this.identifierURL}/fcdo/receiver_org_valid_prefixes.json`)
       this.receiver_data = Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
     async loadImplementerData() {
       const {data} = await axios
-        .get(`${this.identifierURL}/implementing_org_valid_prefixes.json`)
+        .get(`${this.identifierURL}/fcdo/implementing_org_valid_prefixes.json`)
       this.implementer_data= Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
+    // Getting traceability stats
+    async loadLeftChartPublisherData() {
+      const {data} = await axios
+        .get(`${this.identifierURL}${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id.json`);
+
+      this.leftChart.publisher = Math.round(data) || 0;
+    },
+    async loadLeftChartDemominatorData() {
+      const {data} = await axios
+        .get(`${this.identifierURL}${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id_denominator.json`);
+
+      this.leftChart.denominator = Math.round(data) || 0; 
+    },
+
+
   },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
@@ -272,6 +298,9 @@ export default {
     await this.loadSignatoryCodelistValues()
     await this.loadReceiverData()
     await this.loadImplementerData()
+    await this.loadLeftChartPublisherData()
+    await this.loadLeftChartDemominatorData()
+
     this.busy = false
   }
 }

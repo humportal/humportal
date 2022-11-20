@@ -7,7 +7,7 @@ const apiURL = "https://humportal.github.io/humportal-data";
 const analyticsURL =
   "https://raw.githubusercontent.com/codeforIATI/IATI-Stats-public/gh-pages";
 const identifierURL =
-  "https://stats-dev.codeforiati.org/current/aggregated-publisher/fcdo/";
+  "https://stats-dev.codeforiati.org/current/aggregated-publisher/";
 
 export const state = () => ({
   stats: {
