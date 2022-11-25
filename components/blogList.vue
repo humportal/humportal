@@ -5,7 +5,8 @@
                     <b-card-img-lazy :src="blog.image" class="card-img" top />
                     <b-card-title class="text-monospace lead font-weight-bold">{{ blog.title }}</b-card-title>
                     <b-card-text class="card-text ">
-                        {{ blog.summary }}
+                        <b-badge variant="dark">{{new Date(blog.date).toDateString() }}</b-badge>
+                        <p>{{ blog.summary }}</p>
                     </b-card-text>
                     <NuxtLink :to="`blogs/${blog.slug}`">
                         <b-button variant="primary">Read More</b-button>
