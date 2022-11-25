@@ -255,12 +255,12 @@ export default {
     // Getting Receiver organizations data
     async loadReceiverData() {
       const {data} = await axios
-        .get(`${this.identifierURL}/receiver_org_valid_prefixes.json`)
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/receiver_org_valid_prefixes.json`)
       this.receiver_data = Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
     async loadImplementerData() {
       const {data} = await axios
-        .get(`${this.identifierURL}/implementing_org_valid_prefixes.json`)
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/implementing_org_valid_prefixes.json`)
       this.implementer_data= Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
   },
