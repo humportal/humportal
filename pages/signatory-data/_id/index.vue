@@ -129,10 +129,34 @@
         </b-row>
         <b-row>
           <b-col>
-            <h4 class="lead">Implementing Organisations</h4>
-            <b-table sticky-header striped hover :fields="idFields" :items="implementer_data"></b-table>
+            <h4>Organisation identifiers</h4>
+            <p class="lead">The below charts make it possible
+              for users to see whether publishers are correctly formatting organisation identifiers,
+              and whether these are referring to organisations registered with various different
+              registration bodies.</p>
+            <p class="lead">If publishers
+              use correct organisation identifiers, it is much easier to explicitly identify
+              the relevant organisation, including where they are based &ndash; something
+              that is important for tracking Grand Bargain localisation commitments.</p>
           </b-col>
-
+        </b-row>
+        <b-row>
+          <b-col md="6">
+            <h4>Receiver organisations</h4>
+            <b-table striped hover :fields="idFields" :items="receiver_data" show-empty>
+              <template #empty="scope">
+                There are no receiver organisations in this publisher's data.
+              </template>
+            </b-table>
+          </b-col>
+          <b-col md="6">
+            <h4>Implementing Organisations</h4>
+            <b-table striped hover :fields="idFields" :items="implementer_data" show-empty>
+              <template #empty="scope">
+                There are no implementing organisations in this publisher's data.
+              </template>
+            </b-table>
+          </b-col>
         </b-row>
       </template>
       <template v-else>
@@ -154,7 +178,16 @@ export default {
   },
   data() {
     return {
-      idFields: ['Prefix', 'Number',],
+      idFields: [
+        {
+          key: 'Prefix',
+          label: 'Organisation Identifier Prefix'
+        },
+        {
+          key: 'Number',
+          label: 'Number of Activities'
+        }
+      ],
       receiver_data: {},
       implementer_data: {},
       busy: true,
