@@ -119,9 +119,15 @@
         </b-row>
         <b-row>
           <b-col>
-            <h4 class="lead">Receiver organisations</h4>
-            <b-table sticky-header striped hover :fields="idFields" :items="receiver_data"></b-table>
+            <hr />
+            <h3>Organisation identifiers and traceability</h3>
+            <b-alert show variant="warning">
+              <b><font-awesome-icon :icon="['fas', 'flask']" /> Experimental area!</b>
+              The below charts show some recent additions to the humportal.
+            </b-alert>
           </b-col>
+        </b-row>
+        <b-row>
           <b-col>
             <h4 class="lead">Implementing Organisations</h4>
             <b-table sticky-header striped hover :fields="idFields" :items="implementer_data"></b-table>
