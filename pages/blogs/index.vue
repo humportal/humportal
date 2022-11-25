@@ -11,6 +11,7 @@ export default {
     name: 'Blogs',
     async asyncData({ $content}) {
         const blogs = await $content('blogs')
+        .sortBy('date', 'desc')
         .fetch()
         return { blogs }
     },
