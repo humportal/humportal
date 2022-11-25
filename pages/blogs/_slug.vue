@@ -38,9 +38,9 @@ export default {
   max-width: 800px;
 }
 .blog-img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
   margin-right: 20px;
+  box-shadow: 0px 0px 6px #aaaaaa;
 }
 </style>
   
