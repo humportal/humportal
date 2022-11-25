@@ -49,6 +49,7 @@ export default {
         "faInfoCircle",
         "faDownload",
         "faExternalLinkAlt",
+        "faFlask"
       ],
     },
   },

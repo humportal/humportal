@@ -17,7 +17,7 @@ export const state = () => ({
   signatoryProgressData: [],
   metadata: {},
   analyticsURL: analyticsURL,
-  apiURL: apiURL
+  apiURL: apiURL,
 });
 
 export const mutations = {

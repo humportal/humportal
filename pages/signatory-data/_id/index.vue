@@ -6,8 +6,15 @@
     </div>
     <template v-else>
       <b-row>
-        <b-col md="12">
+        <b-col md="9">
           <h1>{{ publisher.name }}</h1>
+        </b-col>
+        <b-col md="3" class="ml-auto text-md-right">
+          <b-btn :href="`http://d-portal.org/ctrack.html?reporting_ref=${publisher.iatiOrganisationID}#view=main`">View data on D-Portal <font-awesome-icon :icon="['fas', 'external-link-alt']" /></b-btn>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col md="12">
           <h2>Summary</h2>
           <b-table-simple>
             <b-tbody>
@@ -117,6 +124,47 @@
               :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
           </b-col>
         </b-row>
+        <b-row>
+          <b-col>
+            <hr />
+            <h3>Organisation identifiers and traceability</h3>
+            <b-alert show variant="warning">
+              <b><font-awesome-icon :icon="['fas', 'flask']" /> Experimental area!</b>
+              The below charts show some recent additions to the humportal.
+            </b-alert>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <h4>Organisation identifiers</h4>
+            <p class="lead">The below charts make it possible
+              for users to see whether publishers are correctly formatting organisation identifiers,
+              and whether these are referring to organisations registered with various different
+              registration bodies.</p>
+            <p class="lead">If publishers
+              use correct organisation identifiers, it is much easier to explicitly identify
+              the relevant organisation, including where they are based &ndash; something
+              that is important for tracking Grand Bargain localisation commitments.</p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col md="6">
+            <h4>Receiver organisations</h4>
+            <b-table striped hover :fields="idFields" :items="receiver_data" show-empty>
+              <template #empty="scope">
+                There are no receiver organisations in this publisher's data.
+              </template>
+            </b-table>
+          </b-col>
+          <b-col md="6">
+            <h4>Implementing Organisations</h4>
+            <b-table striped hover :fields="idFields" :items="implementer_data" show-empty>
+              <template #empty="scope">
+                There are no implementing organisations in this publisher's data.
+              </template>
+            </b-table>
+          </b-col>
+        </b-row>
       </template>
       <template v-else>
         <b-alert variant="secondary" show class="text-center">No activities.</b-alert>
@@ -137,6 +185,18 @@ export default {
   },
   data() {
     return {
+      idFields: [
+        {
+          key: 'Prefix',
+          label: 'Organisation Identifier Prefix'
+        },
+        {
+          key: 'Number',
+          label: 'Number of Activities'
+        }
+      ],
+      receiver_data: {},
+      implementer_data: {},
       busy: true,
       activities: null,
       humanitarian: {},
@@ -151,8 +211,8 @@ export default {
         cash: "Whether the transaction states any information about cash (using the aid-type vocabulary 4).",
         pledges: "Whether the transaction is a pledge (transaction types 12 or 13).",
         traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier."
-      }
-    }
+      },
+          }
   },
   computed: {
     transactions() {
@@ -215,7 +275,7 @@ export default {
     organisationID() {
       return this.$route.params.id
     },
-    ...mapState(['signatoryData', 'analyticsURL'])
+    ...mapState(['signatoryData', 'analyticsURL', 'identifierURL'])
   },
   methods: {
     async loadSignatoryActivities() {
@@ -238,6 +298,17 @@ export default {
         .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/codelist_values.json`)
       this.codelist_values = data
     },
+    // Getting Receiver organizations data
+    async loadReceiverData() {
+      const {data} = await axios
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/receiver_org_valid_prefixes.json`)
+      this.receiver_data = Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
+    },
+    async loadImplementerData() {
+      const {data} = await axios
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/implementing_org_valid_prefixes.json`)
+      this.implementer_data= Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
+    },
   },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
@@ -245,6 +316,8 @@ export default {
     await this.loadSignatoryHumanitarian()
     await this.loadSignatoryElements()
     await this.loadSignatoryCodelistValues()
+    await this.loadReceiverData()
+    await this.loadImplementerData()
     this.busy = false
   }
 }
