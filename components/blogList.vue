@@ -34,7 +34,9 @@ export default {
 }
 
 .card-img {
-    width: 10rem;
+    max-width: 100%;
+    box-shadow: 0px 0px 2px #aaaaaa;
+    margin-bottom: 20px;
 }
 
 .card-text {
