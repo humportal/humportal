@@ -11,7 +11,7 @@
           <b-nav-item :to="{name: 'about'}">About</b-nav-item>
           <b-nav-item :to="{name: 'signatory-progress'}">Signatory Progress</b-nav-item>
           <b-nav-item :to="{name: 'signatory-data'}">Signatory Data</b-nav-item>
-          <!--<b-nav-item :to="{name: 'faq'}" active-class="active" >FAQs</b-nav-item>-->
+          <b-nav-item :to="{name: 'updates'}">Updates</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
