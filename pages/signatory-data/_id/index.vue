@@ -6,8 +6,15 @@
     </div>
     <template v-else>
       <b-row>
-        <b-col md="12">
+        <b-col md="9">
           <h1>{{ publisher.name }}</h1>
+        </b-col>
+        <b-col md="3" class="ml-auto text-md-right">
+          <b-btn :href="`http://d-portal.org/ctrack.html?reporting_ref=${publisher.iatiOrganisationID}#view=main`">View data on D-Portal <font-awesome-icon :icon="['fas', 'external-link-alt']" /></b-btn>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col md="12">
           <h2>Summary</h2>
           <b-table-simple>
             <b-tbody>
