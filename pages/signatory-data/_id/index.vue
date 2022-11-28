@@ -130,14 +130,14 @@
             <h3>Organisation identifiers and traceability</h3>
             <b-alert show variant="warning">
               <b><font-awesome-icon :icon="['fas', 'flask']" /> Experimental area!</b>
-              The below charts show some recent additions to the humportal.
+              The below tables show some recent additions to the humportal.
             </b-alert>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
             <h4>Organisation identifiers</h4>
-            <p class="lead">The below charts make it possible
+            <p class="lead">The below tables make it possible
               for users to see whether publishers are correctly formatting organisation identifiers,
               and whether these are referring to organisations registered with various different
               registration bodies.</p>
