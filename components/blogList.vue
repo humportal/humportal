@@ -8,7 +8,7 @@
                         <b-badge variant="dark">{{new Date(blog.date).toDateString() }}</b-badge>
                         <p>{{ blog.summary }}</p>
                     </b-card-text>
-                    <NuxtLink :to="`updates/${blog.slug}`">
+                    <NuxtLink :to="{name: 'updates-slug', params: { slug: blog.slug}}">
                         <b-button variant="primary">Read More</b-button>
                     </NuxtLink>
                 </b-card>
