@@ -188,11 +188,13 @@ export default {
       idFields: [
         {
           key: 'Prefix',
-          label: 'Organisation Identifier Prefix'
+          label: 'Organisation Identifier Prefix',
+          sortable: true,
         },
         {
           key: 'Number',
-          label: 'Number of Activities'
+          label: 'Number of Activities',
+          sortable: true,
         }
       ],
       receiver_data: {},
