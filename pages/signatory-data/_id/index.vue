@@ -154,6 +154,12 @@
               <template #empty="scope">
                 There are no receiver organisations in this publisher's data.
               </template>
+              <template #cell(RegistrationAgency)="data">
+                {{ getRegistrationAgency(data.item.Prefix).name }}
+              </template>
+              <template #cell(Country)="data">
+                {{ getRegistrationAgencyCountry(data.item.Prefix) }}
+              </template>
             </b-table>
           </b-col>
           <b-col md="6">
@@ -161,6 +167,12 @@
             <b-table striped hover :fields="idFields" :items="implementer_data" show-empty>
               <template #empty="scope">
                 There are no implementing organisations in this publisher's data.
+              </template>
+              <template #cell(RegistrationAgency)="data">
+                {{ getRegistrationAgency(data.item.Prefix).name }}
+              </template>
+              <template #cell(Country)="data">
+                {{ getRegistrationAgencyCountry(data.item.Prefix) }}
               </template>
             </b-table>
           </b-col>
@@ -188,11 +200,23 @@ export default {
       idFields: [
         {
           key: 'Prefix',
-          label: 'Organisation Identifier Prefix'
+          label: 'Organisation Identifier Prefix',
+          sortable: true,
+        },
+        {
+          key: 'Country',
+          label: 'Country',
+          sortable: true,
+        },
+        {
+          key: 'RegistrationAgency',
+          label: 'Registration Agency',
+          sortable: true,
         },
         {
           key: 'Number',
-          label: 'Number of Activities'
+          label: 'Number of Activities',
+          sortable: true,
         }
       ],
       receiver_data: {},
@@ -275,9 +299,20 @@ export default {
     organisationID() {
       return this.$route.params.id
     },
-    ...mapState(['signatoryData', 'analyticsURL', 'identifierURL'])
+    ...mapState(['signatoryData', 'analyticsURL', 'identifierURL',
+      'organisationRegistrationAgencies', 'countries'])
   },
   methods: {
+    getRegistrationAgency(prefix) {
+      return prefix in this.organisationRegistrationAgencies ?
+        this.organisationRegistrationAgencies[prefix] : { name: '' }
+    },
+    getRegistrationAgencyCountry(prefix) {
+      const agency = this.getRegistrationAgency(prefix)
+      if (agency.category) {
+        return agency.category in this.countries ? this.countries[agency.category] : ''
+      }
+    },
     async loadSignatoryActivities() {
       const { data } = await axios
         .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/activities.json`)
@@ -318,6 +353,8 @@ export default {
     await this.loadSignatoryCodelistValues()
     await this.loadReceiverData()
     await this.loadImplementerData()
+    this.$store.dispatch('loadOrganisationRegistrationAgencyData')
+    this.$store.dispatch('loadCountriesData')
     this.busy = false
   }
 }
