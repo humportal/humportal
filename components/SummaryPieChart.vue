@@ -1,8 +1,23 @@
 <template>
-  <PieChart
-    :data="chartData"
-    :options="chartOptions"
-    class="pie-chart"></PieChart>
+  <div>
+    <b-form-group
+      class="text-md-right"
+      label="Display as"
+      label-size="sm"
+      >
+      <b-radio-group
+        size="sm"
+        buttons
+        button-variant="outline-secondary"
+        v-model="display"
+        :options="['%', 'Number']">
+      </b-radio-group>
+    </b-form-group>
+    <PieChart
+      :data="chartData"
+      :options="chartOptions"
+      class="pie-chart"></PieChart>
+  </div>
 </template>
 
 <style scoped>
@@ -20,6 +35,8 @@ export default {
   },
   data() {
     return {
+      display: "%",
+      total: 0.0,
       colours: [
         "#1f77b4",
         "#ff7f0e",
@@ -62,17 +79,35 @@ export default {
             textShadowBlur: 2,
             font: {
               weight: 'bold'
+            },
+            formatter: (value, context) => {
+              if (this.display == '%') {
+                return `${value}%`
+              }
+              return value
             }
           }
         }
       }
     },
     chartData() {
+      if (this.display == '%') {
+        this.total = this.data.reduce((summary, item) => {
+          summary += item
+          return summary
+        }, 0.0)
+      }
       return {
         datasets: [
           {
             fill: true,
-            data: this.data,
+            data: this.data.map(item => {
+              if (this.display == '%') {
+                return Math.round(item/this.total*100.0)
+              } else {
+                return item
+              }
+            }),
             fill: true,
             backgroundColor: this.colours
           }

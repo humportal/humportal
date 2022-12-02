@@ -117,21 +117,34 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col md="6">
-            <h4>Traceability elements <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
-            <SummaryPieChart
-              :labels="['Activities without traceability', 'Activities with traceability']"
-              :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
+          <b-col>
+            <hr />
+            <h3>Traceability and organisation identifiers</h3>
+            <b-alert show variant="warning">
+              <b><font-awesome-icon :icon="['fas', 'flask']" /> Experimental area!</b>
+              The below tables show some recent additions to the humportal.
+            </b-alert>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
             <hr />
-            <h3>Organisation identifiers and traceability</h3>
-            <b-alert show variant="warning">
-              <b><font-awesome-icon :icon="['fas', 'flask']" /> Experimental area!</b>
-              The below tables show some recent additions to the humportal.
-            </b-alert>
+            <h4>Traceability</h4>
+            <p class="lead">The below charts make it possible to see the share of incoming funding (on the left), and outgoing funding (on the right), that is traceable. The left hand chart is most relevant for implementing organisations, and the right hand chart is more relevant for initial funders, such as governments.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col md="6">
+            <h4>Incoming traceability <span v-b-tooltip.hover :title="titles.traceabilityOutgoing"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
+            <SummaryPieChart
+              :labels="['Activities without traceability', 'Activities with traceability']"
+              :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
+          </b-col>
+          <b-col md="6">
+            <h4>Outgoing traceability (spend) <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
+            <SummaryPieChart :labels="['Not traceable spend', 'Traceable spend']" :data="[this.leftChart.denominator-this.leftChart.numerator, this.leftChart.numerator]">
+            </SummaryPieChart>
           </b-col>
         </b-row>
         <b-row>
@@ -221,6 +234,10 @@ export default {
       ],
       receiver_data: {},
       implementer_data: {},
+      leftChart: {
+        numerator: 0,
+        denominator: 0
+      },
       busy: true,
       activities: null,
       humanitarian: {},
@@ -234,7 +251,8 @@ export default {
         earmarking: "Whether the transaction states any information about earmarking (using the aid-type vocabularies 2 or 3).",
         cash: "Whether the transaction states any information about cash (using the aid-type vocabulary 4).",
         pledges: "Whether the transaction is a pledge (transaction types 12 or 13).",
-        traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier."
+        traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier.",
+        traceabilityOutgoing: "The share of spending by this organisation which is traceable down to other organisations activities. This is based on whether other organisations report receiving funding from this organisation's activities.",
       },
           }
   },
@@ -303,6 +321,9 @@ export default {
       'organisationRegistrationAgencies', 'countries'])
   },
   methods: {
+    kFormatter(num) {
+      return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num)
+    },
     getRegistrationAgency(prefix) {
       return prefix in this.organisationRegistrationAgencies ?
         this.organisationRegistrationAgencies[prefix] : { name: '' }
@@ -344,6 +365,21 @@ export default {
         .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/implementing_org_valid_prefixes.json`)
       this.implementer_data= Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
+    // Getting traceability stats
+    async loadLeftChartPublisherData() {
+      const {data} = await axios
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id.json`);
+
+      this.leftChart.numerator = Math.round(data) || 0;
+    },
+    async loadLeftChartDemominatorData() {
+      const {data} = await axios
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id_denominator.json`);
+
+      this.leftChart.denominator = Math.round(data) || 0;
+    },
+
+
   },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
@@ -353,6 +389,8 @@ export default {
     await this.loadSignatoryCodelistValues()
     await this.loadReceiverData()
     await this.loadImplementerData()
+    await this.loadLeftChartPublisherData()
+    await this.loadLeftChartDemominatorData()
     this.$store.dispatch('loadOrganisationRegistrationAgencyData')
     this.$store.dispatch('loadCountriesData')
     this.busy = false
