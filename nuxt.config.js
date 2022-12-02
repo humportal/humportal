@@ -49,18 +49,13 @@ export default {
         "faInfoCircle",
         "faDownload",
         "faExternalLinkAlt",
+        "faFlask"
       ],
     },
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    "bootstrap-vue/nuxt",
-    // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios",
-    "@nuxt/content",
-  ],
+  modules: ["bootstrap-vue/nuxt", "@nuxtjs/axios", "@nuxt/content"],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

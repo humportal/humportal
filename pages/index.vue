@@ -58,7 +58,9 @@ import DecorationLanding from '../components/DecorationLanding.vue'
 import BlogList from '../components/blogList.vue'
 export default {
     async asyncData({ $content}) {
-        const blogs = await $content('blogs').limit(3).fetch()
+        const blogs = await $content('blogs').limit(3)
+        .sortBy('date', 'desc')
+        .fetch()
         return { blogs }
     },
   components: {

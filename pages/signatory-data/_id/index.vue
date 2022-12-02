@@ -6,8 +6,15 @@
     </div>
     <template v-else>
       <b-row>
-        <b-col md="12">
+        <b-col md="9">
           <h1>{{ publisher.name }}</h1>
+        </b-col>
+        <b-col md="3" class="ml-auto text-md-right">
+          <b-btn :href="`http://d-portal.org/ctrack.html?reporting_ref=${publisher.iatiOrganisationID}#view=main`">View data on D-Portal <font-awesome-icon :icon="['fas', 'external-link-alt']" /></b-btn>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col md="12">
           <h2>Summary</h2>
           <b-table-simple>
             <b-tbody>
@@ -110,27 +117,78 @@
           </b-col>
         </b-row>
         <b-row>
+          <b-col>
+            <hr />
+            <h3>Traceability and organisation identifiers</h3>
+            <b-alert show variant="warning">
+              <b><font-awesome-icon :icon="['fas', 'flask']" /> Experimental area!</b>
+              The below tables show some recent additions to the humportal.
+            </b-alert>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <hr />
+            <h4>Traceability</h4>
+            <p class="lead">The below charts make it possible to see the share of incoming funding (on the left), and outgoing funding (on the right), that is traceable. The left hand chart is most relevant for implementing organisations, and the right hand chart is more relevant for initial funders, such as governments.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
           <b-col md="6">
-            <h4>Traceability elements <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
+            <h4>Incoming traceability <span v-b-tooltip.hover :title="titles.traceabilityOutgoing"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Activities without traceability', 'Activities with traceability']"
               :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
           </b-col>
           <b-col md="6">
-            <SummaryPieChart :labels="['Publisher', 'Denominator']" :data="[this.leftChart.publisher, this.leftChart.denominator]">
+            <h4>Outgoing traceability (spend) <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
+            <SummaryPieChart :labels="['Not traceable spend', 'Traceable spend']" :data="[this.leftChart.denominator-this.leftChart.numerator, this.leftChart.numerator]">
             </SummaryPieChart>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <h4 class="lead">Receiver organisations</h4>
-            <b-table sticky-header striped hover :fields="idFields" :items="receiver_data"></b-table>
+            <h4>Organisation identifiers</h4>
+            <p class="lead">The below tables make it possible
+              for users to see whether publishers are correctly formatting organisation identifiers,
+              and whether these are referring to organisations registered with various different
+              registration bodies.</p>
+            <p class="lead">If publishers
+              use correct organisation identifiers, it is much easier to explicitly identify
+              the relevant organisation, including where they are based &ndash; something
+              that is important for tracking Grand Bargain localisation commitments.</p>
           </b-col>
-          <b-col>
-            <h4 class="lead">Implementing Organisations</h4>
-            <b-table sticky-header striped hover :fields="idFields" :items="implementer_data"></b-table>
+        </b-row>
+        <b-row>
+          <b-col md="6">
+            <h4>Receiver organisations</h4>
+            <b-table striped hover :fields="idFields" :items="receiver_data" show-empty>
+              <template #empty="scope">
+                There are no receiver organisations in this publisher's data.
+              </template>
+              <template #cell(RegistrationAgency)="data">
+                {{ getRegistrationAgency(data.item.Prefix).name }}
+              </template>
+              <template #cell(Country)="data">
+                {{ getRegistrationAgencyCountry(data.item.Prefix) }}
+              </template>
+            </b-table>
           </b-col>
-
+          <b-col md="6">
+            <h4>Implementing Organisations</h4>
+            <b-table striped hover :fields="idFields" :items="implementer_data" show-empty>
+              <template #empty="scope">
+                There are no implementing organisations in this publisher's data.
+              </template>
+              <template #cell(RegistrationAgency)="data">
+                {{ getRegistrationAgency(data.item.Prefix).name }}
+              </template>
+              <template #cell(Country)="data">
+                {{ getRegistrationAgencyCountry(data.item.Prefix) }}
+              </template>
+            </b-table>
+          </b-col>
         </b-row>
       </template>
       <template v-else>
@@ -152,11 +210,32 @@ export default {
   },
   data() {
     return {
-      idFields: ['Prefix', 'Number',],
+      idFields: [
+        {
+          key: 'Prefix',
+          label: 'Organisation Identifier Prefix',
+          sortable: true,
+        },
+        {
+          key: 'Country',
+          label: 'Country',
+          sortable: true,
+        },
+        {
+          key: 'RegistrationAgency',
+          label: 'Registration Agency',
+          sortable: true,
+        },
+        {
+          key: 'Number',
+          label: 'Number of Activities',
+          sortable: true,
+        }
+      ],
       receiver_data: {},
       implementer_data: {},
       leftChart: {
-        publisher: 0,
+        numerator: 0,
         denominator: 0
       },
       busy: true,
@@ -172,7 +251,8 @@ export default {
         earmarking: "Whether the transaction states any information about earmarking (using the aid-type vocabularies 2 or 3).",
         cash: "Whether the transaction states any information about cash (using the aid-type vocabulary 4).",
         pledges: "Whether the transaction is a pledge (transaction types 12 or 13).",
-        traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier."
+        traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier.",
+        traceabilityOutgoing: "The share of spending by this organisation which is traceable down to other organisations activities. This is based on whether other organisations report receiving funding from this organisation's activities.",
       },
           }
   },
@@ -237,11 +317,22 @@ export default {
     organisationID() {
       return this.$route.params.id
     },
-    ...mapState(['signatoryData', 'analyticsURL', 'identifierURL'])
+    ...mapState(['signatoryData', 'analyticsURL', 'identifierURL',
+      'organisationRegistrationAgencies', 'countries'])
   },
   methods: {
     kFormatter(num) {
       return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num)
+    },
+    getRegistrationAgency(prefix) {
+      return prefix in this.organisationRegistrationAgencies ?
+        this.organisationRegistrationAgencies[prefix] : { name: '' }
+    },
+    getRegistrationAgencyCountry(prefix) {
+      const agency = this.getRegistrationAgency(prefix)
+      if (agency.category) {
+        return agency.category in this.countries ? this.countries[agency.category] : ''
+      }
     },
     async loadSignatoryActivities() {
       const { data } = await axios
@@ -266,26 +357,26 @@ export default {
     // Getting Receiver organizations data
     async loadReceiverData() {
       const {data} = await axios
-        .get(`${this.identifierURL}/fcdo/receiver_org_valid_prefixes.json`)
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/receiver_org_valid_prefixes.json`)
       this.receiver_data = Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
     async loadImplementerData() {
       const {data} = await axios
-        .get(`${this.identifierURL}/fcdo/implementing_org_valid_prefixes.json`)
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/implementing_org_valid_prefixes.json`)
       this.implementer_data= Object.entries(data).map(el => ({Prefix: el[0], Number: el[1]})) 
     },
     // Getting traceability stats
     async loadLeftChartPublisherData() {
       const {data} = await axios
-        .get(`${this.identifierURL}${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id.json`);
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id.json`);
 
-      this.leftChart.publisher = Math.round(data) || 0;
+      this.leftChart.numerator = Math.round(data) || 0;
     },
     async loadLeftChartDemominatorData() {
       const {data} = await axios
-        .get(`${this.identifierURL}${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id_denominator.json`);
+        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisher.publisherID}/traceable_sum_commitments_and_disbursements_by_publisher_id_denominator.json`);
 
-      this.leftChart.denominator = Math.round(data) || 0; 
+      this.leftChart.denominator = Math.round(data) || 0;
     },
 
 
@@ -300,7 +391,8 @@ export default {
     await this.loadImplementerData()
     await this.loadLeftChartPublisherData()
     await this.loadLeftChartDemominatorData()
-
+    this.$store.dispatch('loadOrganisationRegistrationAgencyData')
+    this.$store.dispatch('loadCountriesData')
     this.busy = false
   }
 }
