@@ -130,19 +130,18 @@
           <b-col>
             <hr />
             <h4>Traceability</h4>
-            <p class="lead">The below charts make it possible to see the share of incoming funding (on the left), and outgoing funding (on the right), that is traceable. The left hand chart is most relevant for implementing organisations, and the right hand chart is more relevant for initial funders, such as governments.
-            </p>
+            <p class="lead">The below charts make it possible to see the share of incoming funding (on the left), and outgoing funding (on the right), that is traceable. The left hand chart is most relevant for implementing organisations, and the right hand chart is more relevant for initial funders, such as governments.</p>
           </b-col>
         </b-row>
         <b-row>
           <b-col md="6">
-            <h4>Incoming traceability <span v-b-tooltip.hover :title="titles.traceabilityOutgoing"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
+            <h4>Incoming traceability <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Activities without traceability', 'Activities with traceability']"
               :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
           </b-col>
           <b-col md="6">
-            <h4>Outgoing traceability (spend) <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
+            <h4>Outgoing traceability (spend) <span v-b-tooltip.hover :title="titles.traceabilityOutgoing"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart :labels="['Not traceable spend', 'Traceable spend']" :data="[this.leftChart.denominator-this.leftChart.numerator, this.leftChart.numerator]">
             </SummaryPieChart>
           </b-col>
