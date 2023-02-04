@@ -12,6 +12,7 @@
           <b-nav-item :to="{name: 'signatory-progress'}">Signatory Progress</b-nav-item>
           <b-nav-item :to="{name: 'signatory-data'}">Signatory Data</b-nav-item>
           <b-nav-item :to="{name: 'updates'}">Updates</b-nav-item>
+          <b-nav-item :to="{name: 'reference-docs'}">How To Publish</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
