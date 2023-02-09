@@ -78,10 +78,10 @@ Assuming “beginning” is within the first [two] quarters (though this could e
 1. Download data from the [Country Development Finance Data tool](https://countrydata.iatistandard.org/), for each publisher, filtering to only include humanitarian data (where “Humanitarian” is “Humanitarian”, which appears as “1” in the export).
 2. For disbursements, calculate the number of quarters from the activity start date to the “Calendar Year and Quarter”. Add a new column stating whether this is less than [two] quarters (YES/NO).
 3. Add a pivot table summarising the total commitments by activity, and the total disbursements where the new column added in step 2 is YES. Calculate whether:
-1. the disbursement amount is over 0% of the commitment amount (“funding provided at the beginning of the period”) (YES/NO)
-2. the disbursement amount is 100% of the commitment amount (“total funding approved for a multi-year programme should be paid up front…”) (YES/NO)
+   1. the disbursement amount is over 0% of the commitment amount (“funding provided at the beginning of the period”) (YES/NO)
+   2. the disbursement amount is 100% of the commitment amount (“total funding approved for a multi-year programme should be paid up front…”) (YES/NO)
 4. Summarise the total value in USD by:
-1. total commitments provided
-2. total commitments where over 0% of the commitment value is provided as disbursements within the first [two] quarters (step 3.a. above)
-3. total commitments where 100% of the commitment value is provided as disbursements within the first [two] quarters (step 3.b above)
+   1. total commitments provided
+   2. total commitments where over 0% of the commitment value is provided as disbursements within the first [two] quarters (step 3.a. above)
+   3. total commitments where 100% of the commitment value is provided as disbursements within the first [two] quarters (step 3.b above)
 
