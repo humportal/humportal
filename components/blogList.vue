@@ -9,7 +9,7 @@
                         <p>{{ blog.summary }}</p>
                     </b-card-text>
                     <NuxtLink :to="{name: 'updates-slug', params: { slug: blog.slug}}">
-                        <b-button variant="primary">Read More</b-button>
+                        <b-button variant="primary">Read More &raquo;</b-button>
                     </NuxtLink>
                 </b-card>
         </b-card-group>
