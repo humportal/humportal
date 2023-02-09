@@ -1,6 +1,5 @@
 ---
 title: Earmarking
-summary: How IATI data can be used to track Grand Bargain earmarking commitments.
 ---
 
 `DRAFT FOR CONSULTATION: 9 February 2023`
@@ -29,6 +28,8 @@ Aid organisations committed to:
 Donors committed to:
 
 > Progressively reduce the earmarking of their humanitarian contributions. The aim is to aspire to achieve a global target of 30 per cent of humanitarian contributions that is nonearmarked or softly earmarked by 2020.
+
+*For the full commitments under this workstream, see [Grand Bargain Website: Workstreams 7 & 8. Enhanced quality funding](https://interagencystandingcommittee.org/Quality-funding).*
 
 ## Can IATI data Help Track Commitments?
 
@@ -66,7 +67,7 @@ Even though the more granular additions to the OECD DAC Aid Type codelist were i
 
 Select a publisher among Grand Bargain signatories to see progress in implementation below.
 
-<earmarking></earmarking>
+<aid-types></aid-types>
 
 
 ## How to Track Commitments Using IATI Data
@@ -74,9 +75,13 @@ Select a publisher among Grand Bargain signatories to see progress in implementa
 Organisations monitoring Grand Bargain earmarking commitments can use IATI data to identify the share of funding that is earmarked or unearmarked. This section outlines a general methodology which could be used to calculate the degree of earmarking of each publisher’s data.
 
 1. Download data from the [Country Development Finance Data tool](https://countrydata.iatistandard.org/), for each publisher, filtering to only include humanitarian data (where “Humanitarian” is “Humanitarian”, which appears as “1” in the export).
-2. Lookup the “Aid Type” field against the Aid Type - Earmarking mapping table (a draft is proposed below).
+2. Lookup the “Aid Type” field against the [Aid Type &ndash; Earmarking mapping table](#mapping-oecddac-aid-types-to-earmarking-classifications).
 3. Summarise the total value in USD by each type of earmarking for this publisher.
 
+
+Select a publisher among Grand Bargain signatories to see how such a methodology might work.
+
+<earmarking></earmarking>
 
 
 ---
@@ -101,19 +106,19 @@ Organisations monitoring Grand Bargain earmarking commitments can use IATI data 
 
 There are currently two different ways of tracking the level of earmarking of funding flows. IATI publishers can use one or more of the following classifications using the Aid Type element, on either activities or individual transactions.
 
-Firstly, since 2017, Grand Bargain-specific Earmarking Categories (Unearmarked; Soft Earmarked; Earmarked; Tightly Earmarked) can be used to provide information on the level of earmarking according to Grand Bargain definitions[[1]](#ftnt1). Earmarking Modalities can also be used to provide more detailed information on the level of earmarking according to Grand Bargain definitions. These modalities are grouped into the aforementioned Earmarking Categories. For example:
+Firstly, since 2017, Grand Bargain-specific Earmarking Categories (Unearmarked; Soft Earmarked; Earmarked; Tightly Earmarked) can be used to provide information on the level of earmarking according to Grand Bargain definitions[^1]. Earmarking Modalities can also be used to provide more detailed information on the level of earmarking according to Grand Bargain definitions. These modalities are grouped into the aforementioned Earmarking Categories. For example:
 
 * Earmarked ← Earmarking Category
 * Directed to an aid organisation’s country operations ← Earmarking Modality
 * Directed to a sub-objective/target ← Earmarking Modality
 
-The second approach is to use the OECD DAC Aid Type codelist, which is a standard codelist used in the IATI Standard[[2]](#ftnt2). When the Grand Bargain was agreed, this codelist was insufficiently detailed to provide information on the level of earmarking. However, in 2020, this codelist was adjusted to provide a more granular breakdown of modalities[[3]](#ftnt3). The adjustments took place for reporting on 2020 activities to the CRS, on a voluntary basis. The codelist makes it possible to map against the Grand Bargain Earmarking Categories. It may also be possible to use this and other data to map against the more granular Earmarking Modalities.
+The second approach is to use the OECD DAC Aid Type codelist, which is a standard codelist used in the IATI Standard[^2]. When the Grand Bargain was agreed, this codelist was insufficiently detailed to provide information on the level of earmarking. However, in 2020, this codelist was adjusted to provide a more granular breakdown of modalities[^3]. The adjustments took place for reporting on 2020 activities to the CRS, on a voluntary basis. The codelist makes it possible to map against the Grand Bargain Earmarking Categories. It may also be possible to use this and other data to map against the more granular Earmarking Modalities.
 
 #### Can the OECD DAC Aid Type codelist alone satisfy the needs for tracking earmarking under the Grand Bargain?
 
 As previously mentioned, the OECD DAC Aid Type codelist previously could not satisfy the needs for tracking earmarking under the Grand Bargain, as until 2020 it did not have the level of granularity required to track earmarking.
 
-Following the more granular codes added to the OECD DAC Aid Type codelist, it should now be possible to meet the needs for tracking earmarking under the Grand Bargain. The section OECD/DAC Aid Types and Earmarking (below) provides an initial comprehensive mapping between OECD/DAC Aid Types and Grand Bargain Earmarking Categories[[4]](#ftnt4).
+Following the more granular codes added to the OECD DAC Aid Type codelist, it should now be possible to meet the needs for tracking earmarking under the Grand Bargain. The section OECD/DAC Aid Types and Earmarking (below) provides an initial comprehensive mapping between OECD/DAC Aid Types and Grand Bargain Earmarking Categories[^4].
 
 #### Identifying indirect earmarking
 
@@ -129,7 +134,7 @@ An approach here might be to compare the earmarking of funding that aid organisa
 
 ### 3. Progress in implementation
 
-So far, only 16 publishers have used Grand Bargain Earmarking Categories, and only 7 publishers have used Grand Bargain Earmarking Modalities[[5]](#ftnt5). In total, this covers parts of 10 Grand Bargain signatories, and only 2 governments. This is out of a total of 1,497 publishers on the IATI Registry.
+So far, only 16 publishers have used Grand Bargain Earmarking Categories, and only 7 publishers have used Grand Bargain Earmarking Modalities[^5]. In total, this covers parts of 10 Grand Bargain signatories, and only 2 governments. This is out of a total of 1,497 publishers on the IATI Registry.
 
 In contrast, 986 publishers publish the Aid Type element; almost all of these use the OECD DAC Aid Type codelist. For the new Aid Type codes which allow greater precision in the degree of earmarking, 10 organisations have begun using at least one of the new codes. All 10 of these organisations are Grand Bargain signatories. 8 of them are governments.
 
@@ -205,57 +210,48 @@ Examples
 
 This section provides examples of how the level of earmarking can be stated in IATI data using various codelists.
 
-Using the Grand Bargain Earmarking Category codelist:
+Using the **Grand Bargain Earmarking Category** codelist:
 
 ```xml
 <default-aid-type vocabulary="2" code="3" />
 ```
 
-Explanation:
+*Explanation:*
 
 The activity has been classified as “Earmarked” (code 3) according to the Grand Bargain Earmarking Category codelist (vocabulary 2).
 
-Using the Grand Bargain Earmarking Modality codelist:
+Using the **Grand Bargain Earmarking Modality** codelist:
 
 ```xml
 <default-aid-type vocabulary="3" code="G" />
 ```
 
-Explanation:
+*Explanation:*
 
 The activity has been classified as “Earmarked → Directed to an aid organisation’s country operations” (code G) according to the Grand Bargain Earmarking Modality codelist (vocabulary 3).
 
-Using the OECD DAC Aid Type codelist:
+Using the **OECD DAC Aid Type** codelist:
 
 ```xml
 <default-aid-type vocabulary="1" code="B033" />
 ```
 
-Explanation:
+*Explanation:*
 
-The activity has been classified as “Contributions to single-donor funding mechanisms and contributions earmarked for a specific funding window or geographical location” (code B033) according to the OECD DAC Aid Type codelist (vocabulary 1)[[6]](#ftnt6).
+The activity has been classified as “Contributions to single-donor funding mechanisms and contributions earmarked for a specific funding window or geographical location” (code B033) according to the OECD DAC Aid Type codelist (vocabulary 1)[^6].
 
 
 
----
 
-[[1]](#ftnt_ref1) See Annex 1, final page of this document: [https://reliefweb.int/sites/reliefweb.int/files/resources/Grand\_Bargain\_final\_22\_May\_FINAL-2.pdf](https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf)
+[^1]: See Annex 1, final page of this document: [https://reliefweb.int/sites/reliefweb.int/files/resources/Grand\_Bargain\_final\_22\_May\_FINAL-2.pdf](https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf)
 
-[[2]](#ftnt_ref2) Renamed to the “Co-operation Modality” codelist in 2020, but still referred to in the IATI Standard as the Aid Type codelist.
+[^2]: Renamed to the “Co-operation Modality” codelist in 2020, but still referred to in the IATI Standard as the Aid Type codelist.
 
-[[3]](#ftnt_ref3) OECD DAC - Revised Proposal on Refinements to the Type of Aid / Cooperation Modality Classification (DCD/DAC/STAT(2020)24/REV1):
+[^3]: OECD DAC - Revised Proposal on Refinements to the Type of Aid / Cooperation Modality Classification (DCD/DAC/STAT(2020)24/REV1): [https://www.oecd.org/officialdocuments/publicdisplaydocumentpdf/?cote=DCD/DAC/STAT(2020)24/REV1&docLanguage=En](https://www.oecd.org/officialdocuments/publicdisplaydocumentpdf/?cote%3DDCD/DAC/STAT(2020)24/REV1%26docLanguage%3DEn)
 
-[https://www.oecd.org/officialdocuments/publicdisplaydocumentpdf/?cote=DCD/DAC/STAT(2020)24/REV1&docLanguage=En](https://www.oecd.org/officialdocuments/publicdisplaydocumentpdf/?cote%3DDCD/DAC/STAT(2020)24/REV1%26docLanguage%3DEn)
+[^4]: Mapping to Earmarking Modalities may also be possible, but this is significantly more challenging, as it involves also considering the Implementing Organisation (or “Channel” in OECD DAC terminology), and this information may not be published in a consistent way.
 
-[[4]](#ftnt_ref4) Mapping to Earmarking Modalities may also be possible, but this is significantly more challenging, as it involves also considering the Implementing Organisation (or “Channel” in OECD DAC terminology), and this information may not be published in a consistent way.
+[^5]: At the transaction level: [https://analytics.codeforiati.org/codelist/2/transaction\_aid-type\_@vocabulary.html](https://analytics.codeforiati.org/codelist/2/transaction_aid-type_@vocabulary.html); At the activity level: [https://analytics.codeforiati.org/codelist/2/default-aid-type\_@vocabulary.html](https://analytics.codeforiati.org/codelist/2/default-aid-type_@vocabulary.html)
 
-[[5]](#ftnt_ref5) At the transaction level:
-
-[https://analytics.codeforiati.org/codelist/2/transaction\_aid-type\_@vocabulary.html](https://analytics.codeforiati.org/codelist/2/transaction_aid-type_@vocabulary.html)
-
-At the activity level:
-
-[https://analytics.codeforiati.org/codelist/2/default-aid-type\_@vocabulary.html](https://analytics.codeforiati.org/codelist/2/default-aid-type_@vocabulary.html)
-
-[[6]](#ftnt_ref6) Note that, according to the conventions of the IATI Standard, as this is the default codelist for the Aid Type element, the vocabulary attribute can be omitted and the OECD DAC codelist is assumed.
+[^6]: Note that, according to the conventions of the IATI Standard, as this is the default codelist for the Aid Type element, the vocabulary attribute can be omitted and the OECD DAC codelist is assumed.
 

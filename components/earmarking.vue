@@ -1,32 +1,29 @@
 <template>
   <b-card
-    title="Publishers’ progress in use of aid types"
     class="mb-5">
-    <p>
-      <b-form-group
-      label="Publisher">
-        <b-select
-          :options="signatoryData"
-          v-model="publisherID"
-          text-field="name"
-          value-field="publisherID">
-        </b-select>
-      </b-form-group>
-    </p>
-    <b-progress
-      :max="100"
-      show-progress
-      class="mb-2 text-muted"
-    >
-      <b-progress-bar
-        :value="(aidTypesTotals/activitiesOrTransactionsValue)*100"
-        :label="`${((aidTypesTotals / activitiesOrTransactionsValue) * 100).toFixed(0)}%`">
-      </b-progress-bar>
-    </b-progress>
-    <p>{{ ((aidTypesTotals / activitiesOrTransactionsValue) * 100).toFixed(0) }}% of this publisher’s {{ activitiesOrTransactions }} use OECD DAC Aid Type codes.</p>
-    <p><font-awesome-icon :icon="['fas', 'check']" class="text-success" v-if="granularAidTypes > 0" />
-      <font-awesome-icon :icon="['fas', 'times']" class="text-warning" v-else />
-     {{ granularAidTypes }} {{ activitiesOrTransactions }} are using the new more granular aid types.</p>
+    <h5>Publishers’ earmarking according to draft mapping</h5>
+    <b-form-group
+    label="Select a publisher">
+      <b-select
+        :options="signatoryData"
+        v-model="publisherID"
+        text-field="name"
+        value-field="publisherID">
+      </b-select>
+    </b-form-group>
+    <b-table
+      sort-by="aid_type.code"
+      :items="aidTypes"
+      :fields="aidTypeFields">
+
+      <template #cell(earmarking)="data">
+        {{ earmarkingMapping[data.item['aid_type.code']] }}
+      </template>
+    </b-table>
+    <p class="text-muted">Showing humanitarian spending for {{ year }}, using
+      data from <a :href="cdfdLink">IATI's Country Development Finance Data tool</a>.</p>
+
+    <p class="text-muted font-italic text-md-right">Last calculated: {{ lastUpdated }}</p>
   </b-card>
 </template>
 <script>
@@ -38,71 +35,84 @@ export default {
   },
   data() {
     return {
-      activitiesOrTransactions: 'activities',
-      activities: 0,
-      codelist_values: {},
-      publisherID: 'fcdo'
+      aidTypes: [],
+      publisherID: 'fcdo',
+      earmarkingMapping: {},
+      aidTypeFields: [
+        {
+          key: 'aid_type.code',
+          label: 'Code',
+          sortable: true
+        },
+        {
+          key: 'aid_type.name_en',
+          label: 'Name',
+          sortable: true
+        },
+        {
+          key: 'value_usd.sum',
+          label: 'Value (USD)',
+          formatter: value => {
+            return value.toLocaleString(undefined, {maximumFractionDigits: 0})
+          },
+          thClass: 'text-right',
+          tdClass: 'text-right',
+          sortable: true
+        },
+        {
+          key: 'earmarking',
+          label: 'Earmarking (DRAFT Mapping)',
+          sortable: true
+        },
+      ]
     }
   },
   computed: {
-    activitiesOrTransactionsValue() {
-      if (this.activitiesOrTransactions == 'activities') {
-        return this.activities
+    publisherIATIIdentifier() {
+      const signatory = this.signatoryData.filter(item => {
+        return item.publisherID == this.publisherID
+      })
+      if (signatory.length>0) {
+        return signatory[0]['iatiOrganisationID']
       }
-      return this.transactions
     },
-    transactions() {
-      if (Object.keys(this.codelist_values).length == 0) { return 0 }
-      return Object.values(this.codelist_values['.//transaction/transaction-type/@code']).reduce((total, item) =>{
-        return total + item
-      }, 0)
+    cdfdLink() {
+      return `https://countrydata.iatistandard.org/data/custom/?drilldowns=aid_type&filters=reporting_organisation%3A${this.publisherIATIIdentifier}%3Btransaction_type%3A3,4%3Byear%3A${this.year}%3Bhumanitarian%3A1`
     },
-    aidTypesTotals() {
-      return Object.values(this.aidTypes).reduce((summary, item) => {
-        return summary + item
-      }, 0)
+    year() {
+      const today = new Date()
+      return today.getFullYear()-1
     },
-    aidTypes() {
-      if (this.codelist_values[".//default-aid-type[@vocabulary = '1' or not(@vocabulary)]/@code"]) {
-        this.activitiesOrTransactions = 'activities'
-        return this.codelist_values[".//default-aid-type[@vocabulary = '1' or not(@vocabulary)]/@code"]
-      } else if (this.codelist_values[".//transaction/aid-type[@vocabulary = '1' or not(@vocabulary)]/@code"] ) {
-        this.activitiesOrTransactions = 'transactions'
-        return this.codelist_values[".//default-aid-type[@vocabulary = '1' or not(@vocabulary)]/@code"]
-      }
-      return {}
+    lastUpdated() {
+      const finishedDate = new Date(this.metadata.finished)
+      return `${finishedDate.toLocaleDateString(undefined, {})} ${finishedDate.toLocaleTimeString(undefined, {})}`
     },
-    granularAidTypes() {
-      return Object.entries(this.aidTypes).reduce((summary, item) => {
-        if (['B021', 'B022', 'B031', 'B032', 'B033'].includes(item[0])) {
-          summary += item[1]
-        }
-        return summary
-      }, 0)
-    },
-    ...mapState(['signatoryData', 'analyticsURL'])
+    ...mapState(['signatoryData', 'analyticsURL', 'metadata'])
   },
   methods: {
-    async loadSignatoryActivities() {
+    async loadEarmarkingMapping() {
       const { data } = await axios
-        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisherID}/activities.json`)
-      this.activities = data
+        .get(`/gb_earmarking_mapping.json`)
+      this.earmarkingMapping = data.reduce((summary, item) => {
+        summary[item.Code] = item['GB Earmarking']
+        return summary
+      }, {})
     },
-    async loadSignatoryCodelistValues() {
+    async loadSignatoryAidTypes() {
       const { data } = await axios
-        .get(`${this.analyticsURL}/current/aggregated-publisher/${this.publisherID}/codelist_values.json`)
-      this.codelist_values = data
-    }
+        .get(`https://cdfd.iati.opendataservices.coop/api/babbage/cubes/iatiline/aggregate/?drilldown=aid_type&order=value_usd.sum:desc&cut=year:%22${this.year}%22|humanitarian:"1"|transaction_type.code:"3";"4"|reporting_organisation.code:%22${this.publisherIATIIdentifier}%22&aggregates=value_usd.sum&simple&pagesize=10`)
+      this.aidTypes = data.cells
+    },
   },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
-    await this.loadSignatoryActivities()
-    await this.loadSignatoryCodelistValues()
+    await this.$store.dispatch('loadMetadata')
+    await this.loadEarmarkingMapping()
+    await this.loadSignatoryAidTypes()
   },
   watch: {
     publisherID() {
-      this.loadSignatoryActivities()
-      this.loadSignatoryCodelistValues()
+      this.loadSignatoryAidTypes()
     }
   }
 }
