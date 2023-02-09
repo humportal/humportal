@@ -23,6 +23,7 @@
     "chartjs-plugin-datalabels": "^0.7.0",
     "core-js": "^3.24.1",
     "nuxt": "^2.15.8",
+    "transliteration": "^2.3.5",
     "vue": "2.7.8",
     "vue-chartjs": "^3.5.1"
   },
