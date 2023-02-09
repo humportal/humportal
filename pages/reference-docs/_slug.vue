@@ -1,36 +1,63 @@
 <template>
-  <b-container class="position-relative">
+  <b-container>
     <b-row>
-      <b-col cols="xs" class="position-fixed sidenav">
-        <b-navbar-nav v-for="doc of docs" :key="doc.slug">
-          <b-nav-item href="#">
-            <NuxtLink :to="{name: 'reference-docs-slug', params: {slug: doc.slug}}">
-              {{doc.slug}}
-            </NuxtLink>
-          </b-nav-item>
-        </b-navbar-nav>
+      <b-col md="3" class="text-md-right">
+        <b-navbar toggleable="md">
+          <b-navbar-toggle target="reference-nav-collapse">Guidance notes menu</b-navbar-toggle>
+          <b-collapse id="reference-nav-collapse" is-nav>
+            <b-navbar-nav vertical class="sidebar-nav">
+              <div class="sidenav">
+                <b-nav-text class="font-italic text-dark">Guidance Notes</b-nav-text>
+                <b-nav-item
+                  :to="{name: 'reference-docs-slug', params: {slug: doc.slug}}"
+                  v-for="doc of docs"
+                  :key="doc.slug">
+                  {{ doc.title }}
+                </b-nav-item>
+              </div>
+              <div class="toc">
+                <b-nav-text class="font-italic text-dark">In this Note</b-nav-text>
+                <b-nav-item
+                  v-for="link of doc.toc"
+                  v-if="link.depth===2"
+                  :key="link.id"
+                  :to="`#${link.id}`">
+                  {{ link.text }}
+                </b-nav-item>
+              </div>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
       </b-col>
-      <b-col class="content-col">
+      <b-col md="9" class="content-col">
         <NuxtContent :document="doc" />
      </b-col>
     </b-row>
   </b-container>
 </template>
 <style>
-  .sidenav{
-    margin-top: 100px;
-    text-align: right;
-    font-size: 1.2em;
-  }
-  .content-col{
-    margin-left: 200px;
-  }
+.navbar-text {
+  padding-right: 0.5rem;
+}
+.navbar-expand-md .sidebar-nav {
+  flex-direction: column !important;
+}
+a.nuxt-link-active {
+  font-weight: bold;
+}
+.sidenav {
+  font-size: 1.2em;
+  padding-right: 20px;
+}
+.toc {
+  padding-right: 20px;
+}
 </style>
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const doc = await $content(`documentation/${params.slug}`).fetch();
-    const docs = await $content("documentation").fetch()
+    const doc = await $content(`guidance/${params.slug}`).fetch();
+    const docs = await $content("guidance").fetch()
     return { doc, docs };
   },
 };
