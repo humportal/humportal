@@ -152,6 +152,9 @@ blockquote {
     margin-top: -5.6rem;
     padding-top: 6.6rem;
   }
+  h5 {
+    font-style: italic;
+  }
   h2:hover .icon.icon-link, h3:hover .icon.icon-link, h4:hover .icon.icon-link, h5:hover .icon.icon-link {
     opacity: 100;
   }
