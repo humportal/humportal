@@ -21,7 +21,10 @@
       </template>
     </b-table>
     <p class="text-muted">Showing humanitarian spending for {{ year }}, using
-      data from <a :href="cdfdLink">IATI's Country Development Finance Data tool</a>.</p>
+      data from <a :href="cdfdLink">IATI's Country Development Finance Data tool</a>,
+      mapped against Grand Bargain Earmarking Categories using the
+      <a href="#mapping-oecddac-aid-types-to-earmarking-classifications">draft mapping table
+      below</a>.</p>
 
     <p class="text-muted font-italic text-md-right">Last calculated: {{ lastUpdated }}</p>
   </b-card>
