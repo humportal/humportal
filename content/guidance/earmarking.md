@@ -1,5 +1,6 @@
 ---
 title: Earmarking
+summary: How IATI data can be used to track Grand Bargain earmarking commitments.
 ---
 
 `DRAFT FOR CONSULTATION: 9 February 2023`
