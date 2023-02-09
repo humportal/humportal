@@ -12,7 +12,7 @@
           <b-nav-item :to="{name: 'signatory-progress'}">Signatory Progress</b-nav-item>
           <b-nav-item :to="{name: 'signatory-data'}">Signatory Data</b-nav-item>
           <b-nav-item :to="{name: 'updates'}">Updates</b-nav-item>
-          <b-nav-item :to="{name: 'reference-docs'}">How To Publish</b-nav-item>
+          <b-nav-item :to="{name: 'guidance'}">Guidance</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @font-face {
   font-family: 'Inter';
   src: url('~/assets/fonts/subset-Inter-LightBETA.eot');
@@ -109,6 +109,52 @@ img.logo {
 
 .navbar-primary .navbar-nav .nav-item a.nuxt-link-exact-active {
     color: #25a898;
+}
+
+blockquote {
+  margin-left: 10px;
+  border-left: 5px solid lightgrey;
+  padding-left: 15px;
+  font-style: italic;
+}
+
+
+
+.nuxt-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  ul, ol {
+    padding-left: 20px;
+  }
+  li {
+    padding-left: 5px;
+  }
+  span.icon.icon-link {
+    opacity: 0;
+    font-size: .85em;
+    float: left;
+    margin-left: -0.87em;
+    padding-right: 0.23em;
+    margin-top: 0.125em;
+  }
+  span.icon.icon-link::before {
+    content: "#";
+  }
+  h2 {
+    margin-top: -5.1rem;
+    padding-top: 6.6rem;
+  }
+  h3 {
+    margin-top: -5.6rem;
+    padding-top: 6.6rem;
+  }
+  h4 {
+    margin-top: -5.6rem;
+    padding-top: 6.6rem;
+  }
+  h2:hover .icon.icon-link, h3:hover .icon.icon-link, h4:hover .icon.icon-link, h5:hover .icon.icon-link {
+    opacity: 100;
+  }
 }
 
 

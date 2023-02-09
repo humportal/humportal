@@ -9,7 +9,7 @@
               <div class="sidenav">
                 <b-nav-text class="font-italic text-dark">Guidance Notes</b-nav-text>
                 <b-nav-item
-                  :to="{name: 'reference-docs-slug', params: {slug: doc.slug}}"
+                  :to="{name: 'guidance-slug', params: {slug: doc.slug}}"
                   v-for="doc of docs"
                   :key="doc.slug">
                   {{ doc.title }}
