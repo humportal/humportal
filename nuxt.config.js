@@ -1,3 +1,4 @@
+import linkFixes from './plugins/link-fixes.js'
 const routerBase =
   process.env.DEPLOY_ENV != undefined
     ? {
@@ -52,6 +53,15 @@ export default {
         "faFlask"
       ],
     },
+  },
+
+  hooks: {
+    'content:file:beforeInsert': linkFixes,
+    // Fix anchors issue
+    // https://github.com/nuxt/content/issues/376#issuecomment-702193217
+    'vue-renderer:ssr:templateParams': function (params) {
+      params.HEAD = params.HEAD.replace('<base href="/humportal-dev/">', "");
+    }
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
