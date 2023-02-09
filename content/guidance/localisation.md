@@ -105,7 +105,7 @@ Select a signatory to see progress in implementation below.
 
 <localisation></localisation>
 
-Select a signatory to see the share of funding that is going to organisations registered in “Developing” countries, according to the [UNM49 definition](https://unstats.un.org/unsd/methodology/m49/overview/).
+Select a signatory to see how many organisations they are working with which are registered in “Developing” countries, according to the [UNM49 definition](https://unstats.un.org/unsd/methodology/m49/overview/).
 
 <localisation-organisations></localisation-organisations>
 
