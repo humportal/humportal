@@ -51,6 +51,7 @@ export default {
         "faCheck",
         "faTimes",
         "faInfoCircle",
+        "faQuestionCircle",
         "faDownload",
         "faExternalLinkAlt",
         "faFlask",
