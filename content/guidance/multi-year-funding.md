@@ -30,8 +30,6 @@ Multi-year funding is [defined](https://interagencystandingcommittee.org/system/
 >    * smooth and/or fast disbursement of funds;
 >    * no-cost extensions available beyond the initial contract duration.
 
-https://interagencystandingcommittee.org/system/files/2022-07/Grand%20Bargain%20Caucus%20on%20Quality%20Funding%20-%20Outcome%20Document%20-%20final%20-%2011Jul22.pdf
-
 ## Can IATI Data Help Track Commitments?
 
 If published correctly, IATI data can be used for automatically tracking whether organisations are:
