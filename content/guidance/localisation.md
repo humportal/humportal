@@ -177,9 +177,7 @@ For example:
 
 ```xml
 <receiver-org type="24" ref="BD-NAB-0210">
-
   <narrative>ActionAid Bangladesh</narrative>
-
 </receiver-org>
 ```
 
