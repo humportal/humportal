@@ -21,7 +21,7 @@ summary: How IATI data can be used to track Grand Bargain localisation commitmen
 
 <b-alert show variant="success">
 <p><b><font-awesome-icon :icon="['fas', 'comments']" class="text-success"></font-awesome-icon> What do you think?</b></p>
-This is an draft note for consultation. We welcome feedback and discussion on this note, which can be discussed in detail on IATI Connect.
+This is an draft note for consultation. We welcome feedback and discussion on this note, which can be discussed in detail on <a href="https://iaticonnect.org/topic/new-guidance-notes-publishing-and-using-humanitarian-iati-data-monitor-grand-bargain">IATI Connect</a>.
 </b-alert>
 
 ## Grand Bargain Localisation Commitments
