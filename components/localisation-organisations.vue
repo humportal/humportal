@@ -14,7 +14,7 @@
     <template v-if="totalImplementers>0">
       <p>{{ totalDevelopingImplementers.toLocaleString() }} out of
         {{ totalImplementers.toLocaleString() }} implementing
-        organisations in this publisher’s data are based in “developing”
+        organisations in this publisher’s data are registered in “developing”
         countries: {{ developingImplementersCountries.join("; ") }}</p>
     </template>
     <template v-else>
@@ -25,7 +25,7 @@
     <template v-if="totalReceivers>0">
       <p>{{ totalDevelopingReceivers.toLocaleString() }} out of
         {{ totalReceivers.toLocaleString() }} receiver
-        organisations in this publisher’s data are based in “developing”
+        organisations in this publisher’s data are registered in “developing”
         countries: {{ developingReceiversCountries.join("; ") }}</p>
     </template>
     <template v-else>
