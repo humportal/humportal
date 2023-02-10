@@ -147,7 +147,7 @@ export default {
   async mounted() {
     await this.$store.dispatch('loadOrganisationRegistrationAgencyData')
     await this.$store.dispatch('loadCountriesData')
-    await this.$store.dispatch('loadpublisherData')
+    await this.$store.dispatch('loadSignatoryData')
     await this.$store.dispatch('loadMetadata')
     await this.loadUNM49Countries()
     await this.loadReceiverData()

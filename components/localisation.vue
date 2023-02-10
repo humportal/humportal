@@ -85,7 +85,7 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch('loadpublisherData')
+    await this.$store.dispatch('loadSignatoryData')
     await this.$store.dispatch('loadMetadata')
     await this.loadSignatoryImplementingOrgStats()
     await this.loadSignatoryReceiverOrgStats()
