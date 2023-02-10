@@ -34,7 +34,6 @@ export default function ({ $axios, app, redirect }) {
           variant: 'danger'
         })
       throw error
-
     }
   })
 }
