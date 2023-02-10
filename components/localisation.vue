@@ -5,7 +5,7 @@
     <b-form-group
     label="Select a publisher">
       <b-select
-        :options="signatoryData"
+        :options="publisherData"
         v-model="publisherID"
         text-field="name"
         value-field="publisherID">
@@ -70,7 +70,7 @@ export default {
       const finishedDate = new Date(this.metadata.finished)
       return `${finishedDate.toLocaleDateString(undefined, {})} ${finishedDate.toLocaleTimeString(undefined, {})}`
     },
-    ...mapState(['signatoryData', 'analyticsURL', 'metadata'])
+    ...mapState(['publisherData', 'analyticsURL', 'metadata'])
   },
   methods: {
     async loadSignatoryImplementingOrgStats() {
@@ -85,7 +85,7 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch('loadSignatoryData')
+    await this.$store.dispatch('loadpublisherData')
     await this.$store.dispatch('loadMetadata')
     await this.loadSignatoryImplementingOrgStats()
     await this.loadSignatoryReceiverOrgStats()
