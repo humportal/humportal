@@ -9,8 +9,19 @@ summary: How IATI data can be used to track Grand Bargain earmarking commitments
 
 *Guidance note from the technical leads of the Grand Bargain Transparency Workstream*
 
-IATI data can be used to track Grand Bargain earmarking commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.
+<b-alert show>
+<p><b>Summary</b></p>
+<p>IATI data can be used to track Grand Bargain earmarking commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.</p>
+<ul>
+  <li>Donors should code their data using the more detailed OECD DAC Aid Types;</li>
+  <li>Stakeholders in the quality funding community should agree how to map from OECD DAC Aid Types to Grand Bargain Earmarking Categories. A draft mapping is included in this note.</li>
+</ul>
+</b-alert>
 
+<b-alert show variant="success">
+<p><b><font-awesome-icon :icon="['fas', 'comments']" class="text-success"></font-awesome-icon> What do you think?</b></p>
+This is an draft note for consultation. We welcome feedback and discussion on this note, which can be discussed in detail on IATI Connect.
+</b-alert>
 
 ## Grand Bargain Earmarking Commitments
 
@@ -48,6 +59,10 @@ Note: this note assumes that the priority is to track earmarking according to th
 * **Tightly Earmarked** (Directed to a specific project; Directed geographically and thematically, tied financially; Directed geographically and thematically, in kind)
 
 These definitions are according to [Annex 1 of the Grand Bargain agreement](https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf).
+
+<b-alert show variant="info">
+NB: This draft note focuses on tracking earmarking on <b>outgoing</b> funding. Tracking earmarking on <b>incoming</b> funding is possible but may require some more thought. See <b><a href="#which-level-does-earmarking-need-to-be-tracked-at">Which level does earmarking need to be tracked at?</a></b> (below).
+</b-alert>
 
 ## What to Publish to Enable Automatic Tracking
 
@@ -127,7 +142,7 @@ There is still somewhat limited progress in the implementation of traceability t
 
 #### Which level does earmarking need to be tracked at?
 
-The initial focus of the earmarking commitment appears to be at the government level – the initial donor.
+The initial focus of the earmarking commitment appears to be on donors.
 
 However, the commitment notes that “Aid organisations in turn commit to do the same”. Earmarking could therefore also be tracked when being channelled through other aid organisations (such as multilaterals or INGOs). Although possible in the IATI Standard, assessing earmarking at this level is more complex; should aid organisations be assessed on their own delivery on the earmarking commitment if the funds they receive are largely earmarked?
 
@@ -240,7 +255,6 @@ Using the **OECD DAC Aid Type** codelist:
 *Explanation:*
 
 The activity has been classified as “Contributions to single-donor funding mechanisms and contributions earmarked for a specific funding window or geographical location” (code B033) according to the OECD DAC Aid Type codelist (vocabulary 1)[^6].
-
 
 
 

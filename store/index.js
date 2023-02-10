@@ -15,6 +15,7 @@ export const state = () => ({
     humanitarian: null,
   },
   signatoryData: [],
+  publisherData: [],
   signatoryProgressData: [],
   metadata: {},
   organisationRegistrationAgencies: {},
@@ -30,6 +31,9 @@ export const mutations = {
   },
   setSignatoryData(state, data) {
     state.signatoryData = data;
+    state.publisherData = data.filter(item => {
+      return item.publisherID != ''
+    })
   },
   setSignatoryProgressData(state, data) {
     state.signatoryProgressData = data;

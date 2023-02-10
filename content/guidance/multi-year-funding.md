@@ -9,7 +9,20 @@ summary: How IATI data can be used to track Grand Bargain multi-year funding com
 
 *Guidance note from the technical leads of the Grand Bargain Transparency Workstream*
 
-IATI data can be used to track Grand Bargain multi-year funding commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.
+
+<b-alert show>
+<p><b>Summary</b></p>
+<p>IATI data can be used to track Grand Bargain multi-year funding commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.</p>
+<ul>
+  <li>Donors should publish commitments, disbursements, start and end dates, and activity budgets;</li>
+  <li>Stakeholders in the quality funding community should agree a methodology for how to use this data to track progress against the quality funding commitments. A draft methodology is proposed below.</li>
+</ul>
+</b-alert>
+
+<b-alert show variant="success">
+<p><b><font-awesome-icon :icon="['fas', 'comments']" class="text-success"></font-awesome-icon> What do you think?</b></p>
+This is an draft note for consultation. We welcome feedback and discussion on this note, which can be discussed in detail on IATI Connect.
+</b-alert>
 
 ## Grand Bargain Multi-Year Funding Commitments
 
@@ -24,13 +37,11 @@ Multi-year funding is [defined](https://interagencystandingcommittee.org/system/
 > ‘Multi-year funding should have the following characteristics to enable recipient organisations to respond efficiently and effectively, especially to protracted crises, including to shifting dynamics on the ground:
 > 1. Duration: 24 months or more at the contract signature, in line with the OECDDAC definition
 > 2. Timeliness: approved funding is advanced to implementing agencies at the beginning of the agreed period, rather than being paid after the period in question
-> 3. Predictability: total funding approved for a multi-year programme should be paid up front wherever possible. Where this is not possible, pre-approved annual tranches should be disbursed, in line with existing guidelines6, and as long as contractual obligations are met and funding is available
+> 3. Predictability: total funding approved for a multi-year programme should be paid up front wherever possible. Where this is not possible, pre-approved annual tranches should be disbursed, in line with existing guidelines, and as long as contractual obligations are met and funding is available
 > 4. Flexible arrangements: funding should have some of these features –
 >    * ability to adapt to changing circumstances and move funds between budget lines and/or sectors of activity, specific locations, delivery modalities, and years; to the extent possible, with no additional pre-approval processes;
 >    * smooth and/or fast disbursement of funds;
 >    * no-cost extensions available beyond the initial contract duration.
-
-https://interagencystandingcommittee.org/system/files/2022-07/Grand%20Bargain%20Caucus%20on%20Quality%20Funding%20-%20Outcome%20Document%20-%20final%20-%2011Jul22.pdf
 
 ## Can IATI Data Help Track Commitments?
 
@@ -43,7 +54,7 @@ If published correctly, IATI data can be used for automatically tracking whether
 It is not currently possible to automatically determine whether funding meets the commitments around “flexible arrangements”. It could be possible to publish this information as an extension to the IATI Standard, depending on agreement and commitment of signatories to publish such information.
 
 <b-alert show variant="info">
-NB: This draft note only focusing on tracking multi-year funding on <b>outgoing</b> funding. Tracking MYF on <b>incoming</b> funding is a more complex, especially when there are multiple funders, and requires some more thought and discusion.
+NB: This draft note only focusing on tracking multi-year funding on <b>outgoing</b> funding. Tracking multi-year funding on <b>incoming</b> funding is more complex, especially when there are multiple funders, and requires some more thought and discusion.
 </b-alert>
 
 ## What to Publish to Enable Automatic Tracking
@@ -84,4 +95,3 @@ Assuming “beginning” is within the first [two] quarters (though this could e
    1. total commitments provided
    2. total commitments where over 0% of the commitment value is provided as disbursements within the first [two] quarters (step 3.a. above)
    3. total commitments where 100% of the commitment value is provided as disbursements within the first [two] quarters (step 3.b above)
-
