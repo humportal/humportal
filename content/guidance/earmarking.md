@@ -9,8 +9,19 @@ summary: How IATI data can be used to track Grand Bargain earmarking commitments
 
 *Guidance note from the technical leads of the Grand Bargain Transparency Workstream*
 
-IATI data can be used to track Grand Bargain earmarking commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.
+<b-alert show>
+<p><b>Summary</b></p>
+<p>IATI data can be used to track Grand Bargain earmarking commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.</p>
+<ul>
+  <li>Donors should code their data using the more detailed OECD DAC Aid Types;</li>
+  <li>Stakeholders in the quality funding community should agree how to map from OECD DAC Aid Types to Grand Bargain Earmarking Categories. A draft mapping is included in this note.</li>
+</ul>
+</b-alert>
 
+<b-alert show variant="success">
+<p><b><font-awesome-icon :icon="['fas', 'comments']" class="text-success"></font-awesome-icon> What do you think?</b></p>
+This is an draft note for consultation. We welcome feedback and discussion on this note, which can be discussed in detail on IATI Connect.
+</b-alert>
 
 ## Grand Bargain Earmarking Commitments
 
@@ -244,7 +255,6 @@ Using the **OECD DAC Aid Type** codelist:
 *Explanation:*
 
 The activity has been classified as “Contributions to single-donor funding mechanisms and contributions earmarked for a specific funding window or geographical location” (code B033) according to the OECD DAC Aid Type codelist (vocabulary 1)[^6].
-
 
 
 

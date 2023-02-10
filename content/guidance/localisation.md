@@ -9,7 +9,20 @@ summary: How IATI data can be used to track Grand Bargain localisation commitmen
 
 *Guidance note from the technical leads of the Grand Bargain Transparency Workstream*
 
-IATI data can be used to track Grand Bargain localisation commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.
+<b-alert show>
+<p><b>Summary</b></p>
+<p>IATI data can be used to track Grand Bargain localisation commitments, with some caveats. This technical note outlines a methodology which can be followed by both Grand Bargain signatories and those tasked with monitoring the implementation of these commitments.</p>
+<ul>
+  <li>All publishers should publish names, identifiers and types for all of the organisations they are working with, wherever possible;</li>
+  <li>The IATI community should agree and add missing definitions to the Organisation Type codelist;
+  <li>Stakeholders in the localisation community should agree a methodology for how to use this data to track progress against the localisation commitments. A draft methodology is proposed below.</li>
+</ul>
+</b-alert>
+
+<b-alert show variant="success">
+<p><b><font-awesome-icon :icon="['fas', 'comments']" class="text-success"></font-awesome-icon> What do you think?</b></p>
+This is an draft note for consultation. We welcome feedback and discussion on this note, which can be discussed in detail on IATI Connect.
+</b-alert>
 
 ## Grand Bargain Localisation Commitments
 
@@ -30,7 +43,7 @@ Local and national actors are [defined](https://interagencystandingcommittee.org
 
 </div>
 
-Direct and indirect is defined as follows:
+Direct and indirect funding is defined as follows:
 
 <table class="table">
   <thead>
@@ -64,11 +77,18 @@ Direct and indirect is defined as follows:
 
 ## Can IATI Data Help Track Commitments?
 
-If published correctly, IATI data can be used for automatically tracking whether organisations engaged in relief:
+If published correctly, IATI data can be used for automatically tracking most of the criteria outlined above. The following table summarises when IATI data can be used.
 
-* are headquartered in any recipient country
-* are headquartered in the aid recipient country
-* are state authorities, either at local or national level
+<div class="table">
+
+Organisations engaged in relief… | Can IATI be used?
+--- | ---
+… are headquartered in any recipient country | <font-awesome-icon :icon="['fas', 'check-circle']" class="text-success" />
+… are headquartered in the aid recipient country | <font-awesome-icon :icon="['fas', 'check-circle']" class="text-success" />
+… are state authorities, either at local or national level | <font-awesome-icon :icon="['fas', 'check-circle']" class="text-success" />
+… are not affiliated to an INGO | <font-awesome-icon :icon="['fas', 'question-circle']" class="text-warning" />
+
+</div>
 
 This can be tracked both for direct and indirect funding to local and national actors.
 
@@ -82,16 +102,17 @@ Grand Bargain signatories should publish data in a way that specifically identif
 
 Grand Bargain signatories should:
 
-* publish the name of their implementing (or receiver) organisations;
-* publish organisation identifiers for implementing (or receiver) organisations;
-* when there is more than one partner organisation receiving funding from an IATI activity, specify them, by name AND organisation identifier, at the transaction level.
+* publish the **name** of their implementing (or receiver) organisations;
+* publish the **type** of their implementing (or receiver) organisations;
+* publish the **organisation identifier** of their implementing (or receiver) organisations;
+* when there is more than one partner organisation receiving funding from an IATI activity, specify them, by name, type and organisation identifier, at the transaction level.
 
 ### Indirect Funding
 
 In order to enable tracking of indirect funding to local and national actors, Grand Bargain signatories should encourage their implementing organisations to:
 
 * publish data in line with the previous section (Publication - Direct Funding)
-* refer back to the funding organisation’s activity, in line with IATI traceability guidance.
+* refer back to the funding organisation’s activity, in line with [IATI traceability guidance](https://iatistandard.org/en/guidance/standard-guidance/traceability/).
 
 ## Progress in Implementation
 
@@ -129,7 +150,7 @@ Those monitoring Grand Bargain localisation commitments can use IATI data to ide
    1. *If the organisation is headquartered in the aid recipient country*: the country code in step (2) will be the same as the “Recipient Country or Region” field.
    2. *If the organisation is in any aid recipient country*: the country code in step (2) will be on a list of “aid recipient countries”. (Depending on how this is defined, this could be according to the UN M49 definition of “developing” countries.)
    3. *If the organisation is a state authority*: the country code in step (2) will be the same as the “Recipient Country or Region” field, and the “Receiver Organisation Type” field will be “10” (Government) or “11” (Local Government).
-4. Summarise the total value in USD by whether implementing organisations are local and national actors according to the definitions in step (2).
+4. Summarise the total value in USD by whether implementing organisations are local and national actors according to the definitions in step (3).
 
 To exclude INGOs, an additional set of work would have to be undertaken. This could be done:
 
@@ -171,7 +192,7 @@ A funder provides $100 to each organisation. So, $30 ($100\*0.1 + $100\*0.2) out
 
 ### 2. How can funding to local and national actors be tracked using the IATI Standard?
 
-Funding to different organisations can be identified by looking at the **Implementing organisation** in an IATI activity[[1]](#ftnt1), or the **Receiver organisation** on a transaction. These are often interchangeable, i.e. there is often a single Implementing organisation for an activity, which will therefore also be the Receiver organisation for all transactions in that activity. However, where there are multiple Implementing organisations, the specific Receiver organisation needs to be stated to distinguish which organisation is actually receiving the funds for a particular transaction. In both cases, a publisher can state the **name** and the **type** of the organisation, as well as an **organisation identifier** to uniquely and unambiguously refer to that organisation.
+Funding to different organisations can be identified by looking at the **Implementing organisation** in an IATI activity[^1], or the **Receiver organisation** on a transaction. These are often interchangeable, i.e. there is often a single Implementing organisation for an activity, which will therefore also be the Receiver organisation for all transactions in that activity. However, where there are multiple Implementing organisations, the specific Receiver organisation needs to be stated to distinguish which organisation is actually receiving the funds for a particular transaction. In both cases, a publisher can state the **name** and the **type** of the organisation, as well as an **organisation identifier** to uniquely and unambiguously refer to that organisation.
 
 For example:
 
@@ -187,15 +208,15 @@ In this example, the receiver organisation is called ActionAid Bangladesh. The t
 
 #### Organisation names are important
 
-Stating the name of the organisation is important because otherwise it is impossible to understand who is receiving the funding. Even if the organisation identifier is published (see below), the name is important to also state[[2]](#ftnt2).
+Stating the name of the organisation is important because otherwise it is impossible to understand who is receiving the funding. Even if the organisation identifier is published (see below), the name is important to also state[^2].
 
 #### Organisation types are not sufficiently accurate for our purposes
 
-In both cases, it is possible to state the type of organisation, according to a list of possible types (see Organisation Types Codelist below). These types do not clearly identify the organisation in a way that matches the Grand Bargain definition. Some of them (e.g. 11 – Local Government) explicitly allow government organisations in a “donor or recipient country”. The closest type to the Grand Bargain definition is “24 – Partner Country based NGO”, but this is ambiguous on whether the organisation can be registered in any partner country, or if it has to be registered in the country receiving these funds.
+In both cases, it is possible to state the type of organisation, according to a list of possible types (see <a href="#organisation-type-codelist">Organisation Type Codelist</a> below). These types do not clearly identify the organisation in a way that matches the Grand Bargain definition. Some of them (e.g. 11 – Local Government) explicitly allow government organisations in a “donor or recipient country”. The closest type to the Grand Bargain definition is “24 – Partner Country based NGO”, but this is ambiguous on whether the organisation can be registered in any partner country, or if it has to be registered in the country receiving these funds.
 
-In any case, only 74 out of 1,497 publishers have used code “24 – Partner-country based NGO” for any of their receiver organisations[[3]](#ftnt3). 83 publishers have used this code for any participating organisations, a field that includes implementing organisations[[4]](#ftnt4).
+In any case, only 74 out of 1,497 publishers have used code “24 – Partner-country based NGO” for any of their receiver organisations[^3]. 83 publishers have used this code for any participating organisations, a field that includes implementing organisations[^4]:.
 
-The organisation type “National NGO” could be another option to get closer to identifying local and national actors. This code may indeed be intended to classify organisations that are not INGOs (as INGO is a separate organisation type). However, there are currently no definitions for these organisation types. Out of the 348 organisations currently publishing data to IATI which classify themselves as a “National NGO”, 38% are based in Western Europe or North America. Adding definitions would need to be accompanied with some outreach activities to re-code data in a more consistent way.
+The organisation type “National NGO” could be another option to get closer to identifying local and national actors. This code may indeed have been intended to classify organisations that are not INGOs (as INGO is a separate organisation type). However, there are currently no definitions for these organisation types. Out of the 348 organisations currently publishing data to IATI which classify themselves as a “National NGO”, 38% are based in Western Europe or North America. Adding definitions to the Organisation Type codelist would need to be accompanied with some outreach activities to re-code data in a more consistent way.
 
 #### Organisation identifiers are very accurate
 
@@ -207,7 +228,7 @@ As explained in the example above, organisation identifiers state:
 
 This allows a user to check which country an organisation is registered in, and to ensure that this funding is unambiguously being channelled to ActionAid Bangladesh (rather than another ActionAid, or any other NGO).
 
-Quick analysis suggests that more than half of countries do not have a recognised registration agency[[5]](#ftnt5). There is a need to add to the list of recognised registration agencies. There is also a need to find a long-term home for this list of recognised registration agencies, and in the medium term, to provide funding to maintain and update this list.
+Quick analysis suggests that more than half of countries do not have a recognised registration agency[^5]. There is a need to add to the list of recognised registration agencies. There is also a need to find a long-term home for this list of recognised registration agencies, and in the medium term, to provide funding to maintain and update this list.
 
 There could also be some countries where there is no registration body, or where the registration body does not issue an actual or stable registration code to the organisation.
 
@@ -226,7 +247,7 @@ There is no automatic way of identifying funding to international NGOs. There ar
 It is now possible to clearly state where funding is channelled to a state authority in the affected country. There are two ways in which this can be done:
 
 1. Organisation identifier starts with the affected country (e.g. BD), and the organisation type is Government (10) or Local Government (11).
-2. Organisation identifier starts with the affected country, followed by COA (e.g. BD-COA). COA stands for “Chart of Accounts”, and is a standardised methodology to refer to public bodies in all countries, using the codes used in the country’s budget or “Chart of Accounts”[[6]](#ftnt6).
+2. Organisation identifier starts with the affected country, followed by COA (e.g. BD-COA). COA stands for “Chart of Accounts”, and is a standardised methodology to refer to public bodies in all countries, using the codes used in the country’s budget or “Chart of Accounts”[^6].
 
 Caveat: at present, it might be more difficult to apply the existing “XX-COA” methodology to local government entities, particularly in federal countries (e.g. Nigeria), where the local entities are not captured in the national budget. In these cases, the methodology could be adapted and expanded through further consultation.
 
@@ -253,14 +274,12 @@ There are two main options:
 | --- | --- | --- |
 | registered in a specific country | RARELY | **YES** |
 | an NGO | YES | YES |
-|    … registered in a specific country | SOMEWHAT(“partner country based”) | YES |
+|    … registered in a specific country | SOMEWHAT (“partner country based NGO”) | YES |
 | a state actor | YES | **YES** |
 |    … registered in a specific country | NO | YES |
 | affiliated with an INGO | NO | **SOMEWHAT** (Becomes easier to identify) |
 
 </div>
-
----
 
 ### Organisation Type Codelist
 
@@ -287,17 +306,15 @@ There are two main options:
 
 </div>
 
----
 
-[[1]](#ftnt_ref1) In the data, this is coded as a Participating Organisation with role “implementing”.
+[^1]: In the data, this is coded as a Participating Organisation with role “implementing”.
 
-[[2]](#ftnt_ref2) As registration bodies do not always have online, public databases, where users can lookup the name of an organisation using its registration number. In any case, these are not standardised, so it is not really possible for machines to perform this lookup for organisations registered with different registration bodies.
+[^2]: As registration bodies do not always have online, public databases, where users can lookup the name of an organisation using its registration number. In any case, these are not standardised, so it is not really possible for machines to perform this lookup for organisations registered with different registration bodies.
 
-[[3]](#ftnt_ref3) [https://analytics.codeforiati.org/codelist/2/transaction\_receiver-org\_@type.html](https://analytics.codeforiati.org/codelist/2/transaction_receiver-org_@type.html)
+[^3]: [https://analytics.codeforiati.org/codelist/2/transaction\_receiver-org\_@type.html](https://analytics.codeforiati.org/codelist/2/transaction_receiver-org_@type.html)
 
-[[4]](#ftnt_ref4) [https://analytics.codeforiati.org/codelist/2/participating-org\_@type.html](https://analytics.codeforiati.org/codelist/2/participating-org_@type.html)
+[^4]: [https://analytics.codeforiati.org/codelist/2/participating-org\_@type.html](https://analytics.codeforiati.org/codelist/2/participating-org_@type.html)
 
-[[5]](#ftnt_ref5) See the OrganisationRegistrationAgency codelist: [https://codelists.codeforiati.org/OrganisationRegistrationAgency/](https://codelists.codeforiati.org/OrganisationRegistrationAgency/)
+[^5]: See the OrganisationRegistrationAgency codelist: [https://codelists.codeforiati.org/OrganisationRegistrationAgency/](https://codelists.codeforiati.org/OrganisationRegistrationAgency/)
 
-[[6]](#ftnt_ref6) See [https://gov-id-finder.codeforiati.org/](https://gov-id-finder.codeforiati.org/) for more information, example codes, and a brief methodology
-
+[^6]: See [https://gov-id-finder.codeforiati.org/](https://gov-id-finder.codeforiati.org/) for more information, example codes, and a brief methodology
