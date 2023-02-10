@@ -49,6 +49,10 @@ Note: this note assumes that the priority is to track earmarking according to th
 
 These definitions are according to [Annex 1 of the Grand Bargain agreement](https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf).
 
+<b-alert show variant="info">
+NB: This draft note focuses on tracking earmarking on <b>outgoing</b> funding. Tracking earmarking on <b>incoming</b> funding is possible but may require some more thought. See <b><a href="#which-level-does-earmarking-need-to-be-tracked-at">Which level does earmarking need to be tracked at?</a></b> (below).
+</b-alert>
+
 ## What to Publish to Enable Automatic Tracking
 
 Grand Bargain signatories should publish data in a way that identifies the type of aid that they are providing. The degree of earmarking can be derived from this classification using a mapping table.
@@ -127,7 +131,7 @@ There is still somewhat limited progress in the implementation of traceability t
 
 #### Which level does earmarking need to be tracked at?
 
-The initial focus of the earmarking commitment appears to be at the government level – the initial donor.
+The initial focus of the earmarking commitment appears to be on donors.
 
 However, the commitment notes that “Aid organisations in turn commit to do the same”. Earmarking could therefore also be tracked when being channelled through other aid organisations (such as multilaterals or INGOs). Although possible in the IATI Standard, assessing earmarking at this level is more complex; should aid organisations be assessed on their own delivery on the earmarking commitment if the funds they receive are largely earmarked?
 
