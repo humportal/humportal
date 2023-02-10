@@ -71,8 +71,7 @@ Grand Bargain signatories should publish data in a way that identifies the type 
 Grand Bargain signatories should:
 
 * publish the “Aid Type” of their funding, either at the activity or the transaction level, using the OECD DAC codelist;
-* include the new more granular DAC “Aid Types” in their systems;
-* use the more granular DAC “Aid Types” where relevant.
+* publish using the new, more granular DAC “Aid Types” where relevant.
 
 ## Progress in Implementation
 
@@ -134,17 +133,13 @@ The second approach is to use the OECD DAC Aid Type codelist, which is a standar
 
 As previously mentioned, the OECD DAC Aid Type codelist previously could not satisfy the needs for tracking earmarking under the Grand Bargain, as until 2020 it did not have the level of granularity required to track earmarking.
 
-Following the more granular codes added to the OECD DAC Aid Type codelist, it should now be possible to meet the needs for tracking earmarking under the Grand Bargain. The section OECD/DAC Aid Types and Earmarking (below) provides an initial comprehensive mapping between OECD/DAC Aid Types and Grand Bargain Earmarking Categories[^4].
-
-#### Identifying indirect earmarking
-
-There is still somewhat limited progress in the implementation of traceability throughout the humanitarian system. Only 14% of Netherlands MFA and 4% of UK FCDO funding is currently traceable. As these figures include all activities, sometimes stretching back decades (not only “current” or “ongoing” activities), they may underestimate the amount of funding that is currently traceable. It is probably the case that older activities have less traceability (and are also probably less relevant), and it may be the case that funding implemented through certain types of organisations (e.g. multilaterals) has less traceability.
+Following the addition of more granular codes to the OECD DAC Aid Type codelist, it should now be possible to meet the needs for tracking earmarking under the Grand Bargain. The section OECD/DAC Aid Types and Earmarking (below) provides an initial comprehensive mapping between OECD/DAC Aid Types and Grand Bargain Earmarking Categories[^4].
 
 #### Which level does earmarking need to be tracked at?
 
 The initial focus of the earmarking commitment appears to be on donors.
 
-However, the commitment notes that “Aid organisations in turn commit to do the same”. Earmarking could therefore also be tracked when being channelled through other aid organisations (such as multilaterals or INGOs). Although possible in the IATI Standard, assessing earmarking at this level is more complex; should aid organisations be assessed on their own delivery on the earmarking commitment if the funds they receive are largely earmarked?
+However, the commitment notes that “Aid organisations in turn commit to do the same”. Earmarking could therefore also be tracked when being channelled through other aid organisations (such as multilaterals or INGOs). Assessing earmarking at this level is more complex; should aid organisations be assessed on their own delivery on the earmarking commitment if the funds they receive are largely earmarked?
 
 An approach here might be to compare the earmarking of funding that aid organisations receive (either as reported by the organisation’s donor, or as reported by the organisation itself as incoming funding), with the funding they provide. If there is a higher degree of earmarking on the funding that the organisation is providing, they could be considered as not meeting their part of the commitment. In any case, such a methodology would need more work, as well as consultation with relevant organisations to understand whether they would be able to differentiate earmarking on the funds they receive compared with the funds they provide.
 
