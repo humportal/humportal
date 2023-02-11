@@ -94,6 +94,12 @@ This can be tracked both for direct and indirect funding to local and national a
 
 IATI data cannot currently be used to automatically track whether an organisation is affiliated to an INGO. This would require further work, either to develop an appropriate methodology to automatically identify such organisations, or periodic work to manually identify such organisations during monitoring exercises.
 
+<b-alert show>
+<p><b>The limits of automatic tracking</b></p>
+<p>This note focuses on how IATI data can be published and used to automatically track progress against localisation commitments. Automation is important because it significantly reduces the cost of such an assessment compared with a manual assessment. It also increases the frequency with which it can be undertaken, meaning that the conclusions may be more timely, relevant and actionable.</p>
+<p>However, the relevance of such findings depends on the perspective taken in terms of what should be counted as a local and national actor. <a href="https://www.publishwhatyoufund.org/2022/05/how-to-track-aid-flows-to-local-organisations/">Recent work by Publish What You Fund</a> used IATI data to assess the degree of localisation, initially of USAID funding, according to various definitions. They found that while 10% of USAID funding to Zambia should be considered “local” according to a <i>more expansive</i> definition of “local”, only 3% of the same funding should be considered “local” according to a <i>more restrictive</i> definition.</p>
+</b-alert>
+
 ## What to Publish to Enable Automatic Tracking
 
 ### Direct Funding
