@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "test:unit": "vue-cli-service test:unit --runInBand --detectOpenHandles",
-    "generate": "NODE_OPTIONS=--openssl-legacy-provider && nuxt generate",
+    "generate": "NODE_OPTIONS=--openssl-legacy-provider nuxt generate",
     "gen-subfolder": "NODE_OPTIONS=--openssl-legacy-provider DEPLOY_ENV=/humportal-dev/ nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
