@@ -14,7 +14,7 @@
     </b-row>
     <article class="my-5">
       <nuxt-content :document="blog"/>
-      <b-button :href="blog.url" variant="primary" class="mt-4">
+      <b-button :href="blog.url" variant="primary" class="mt-4" v-if="blog.url">
        <font-awesome-icon :icon="['fas', 'external-link-alt']" class="mr-2"/>
         {{blog.category === 'blog' ? 'Read More' : 'Visit Site'}}
       </b-button>
