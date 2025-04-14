@@ -36,7 +36,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.blog?.description ? this.blog.description : `The IATI Humanitarian Data Portal - or Humportal - tracks the quality of data published by Grand Bargain signatories.`
+          content: this.blog?.summary ? this.blog.summary : `The IATI Humanitarian Data Portal - or Humportal - tracks the quality of data published by Grand Bargain signatories.`
         }
       ]
     }
