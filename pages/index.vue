@@ -11,7 +11,7 @@
           </b-row>
           <b-row>
             <b-col md="9" class="lead">
-              Explore the humanitarian data that Grand Bargain Signatories are publishing to IATI and learn more about how the <nuxt-link :to="{name: 'about'}">Grand Bargain Transparency commitments</nuxt-link> are helping signatories to publish better data on global humanitarian action.
+              Explore the humanitarian data that Grand Bargain Signatories are publishing to IATI and learn more about how the <nuxt-link  to="/about/">Grand Bargain Transparency commitments</nuxt-link> are helping signatories to publish better data on global humanitarian action.
             </b-col>
           </b-row>
           <hr />
@@ -120,6 +120,20 @@ export default {
   font-family: Inter;
   font-weight: 500;
   letter-spacing: -0.5px;
+}
+
+@media (max-width: 576px) {
+  .jumbotron h1 {
+    line-height: 1.2;
+    font-size: 2rem !important;
+    font-family: Inter;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+  }
+  .jumbotron {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
 }
 .blog-headline{
   text-align: center;

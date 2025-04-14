@@ -3,6 +3,7 @@
     <b-navbar toggleable="lg" type="light" variant="light" class="navbar-primary" sticky>
       <b-navbar-brand :to="{name: 'index'}" title="Home">
         <img src="~/assets/images/logo.png" class="logo" />
+        Humportal
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -12,11 +13,31 @@
           <b-nav-item :to="{name: 'signatory-data'}">Signatory Data</b-nav-item>
           <b-nav-item :to="{name: 'guidance'}">Guidance</b-nav-item>
           <b-nav-item :to="{name: 'updates'}">Updates</b-nav-item>
-          <b-nav-item :to="{name: 'about'}">About</b-nav-item>
+          <b-nav-item to="/about/">About</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <nuxt />
+    <nuxt class="page-body" />
+    <b-container fluid class="footer text-white bg-dark mt-5">
+      <b-container class="pt-5 pb-5 footer">
+        <footer>
+          <b-row>
+            <b-col>
+              <small>Maintained by</small><br />
+              <a href="https://emergentally.com"><img src="/logo.png"
+                alt="Maintained by Emergentally"
+                v-b-tooltip="'Maintained by Emergentally'"
+                class="img-fluid"
+                style="max-width:150px"/></a></b-col>
+            <b-col class="text-right fl-4">
+              <a href="https://mastodon.social/@emergentally" class="me-3"><font-awesome-icon :icon="['fab', 'mastodon']" /></a>
+              <a href="https://bsky.app/profile/emergentally.bsky.social" class="me-3"><font-awesome-icon :icon="['fab', 'bluesky']" /></a>
+              <a href="https://x.com/emergentally" class="me-3"><font-awesome-icon :icon="['fab', 'twitter']" /></a>
+            </b-col>
+          </b-row>
+        </footer>
+      </b-container>
+    </b-container>
   </div>
 </template>
 <script>
@@ -86,7 +107,6 @@ export default {
 }
 body {
     font-family: sans-serif;
-    margin-bottom: 40px;
     word-wrap: break-word;
 }
 img.logo {
@@ -118,6 +138,10 @@ blockquote {
   font-style: italic;
 }
 
+.page-body {
+  margin-bottom: 20px;
+  min-height: calc(100vh - 8.25rem - 6rem - 7rem + 1px); /* 100% - header - navbar - footer */
+}
 
 
 .nuxt-content {
@@ -166,5 +190,16 @@ blockquote {
   }
 }
 
+
+@media (max-width: 992px) {
+  .navbar-primary .navbar-nav .nav-item {
+      padding:  2px 8px;
+  }
+}
+@media (max-width: 1200px) {
+  .navbar-primary .navbar-nav .nav-item {
+    margin-left: 20px;
+  }
+}
 
 </style>
