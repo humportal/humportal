@@ -42,14 +42,14 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/fontawesome", "@nuxtjs/gtm"],
+  buildModules: ["@nuxtjs/fontawesome", 'vue-plausible',],
   fontawesome: {
     icons: {
       solid: [
         "faCheckCircle",
-        "faTimesCircle",
+        "faCircleXmark",
         "faCheck",
-        "faTimes",
+        "faXmark",
         "faInfoCircle",
         "faQuestionCircle",
         "faDownload",
@@ -58,6 +58,7 @@ export default {
         "faCommentDots",
         "faComments"
       ],
+      brands: ['faTwitter', 'faMastodon', 'faBluesky']
     },
   },
 
@@ -76,9 +77,9 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
-  // Google Tag Manager
-  gtm: {
-    id: "GTM-K8PB3WK",
+  // Plausible
+  plausible: {
+    domain: 'humportal.org'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
