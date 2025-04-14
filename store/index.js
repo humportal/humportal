@@ -6,7 +6,7 @@ const baseURL = "https://humportal.org";
 const apiURL = "https://humportal.github.io/humportal-data";
 const codelistsApiURL = "https://codelists.codeforiati.org/api/json/en/";
 const analyticsURL =
-  "https://dashboard.iatistandard.org";
+  "https://dashboard.iatistandard.org/stats";
 
 export const state = () => ({
   stats: {
