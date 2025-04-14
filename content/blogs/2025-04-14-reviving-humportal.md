@@ -3,7 +3,7 @@ title: Reviving the Humportal
 date: 2025-04-14
 image:
 category: blog
-summary: The IATI Humanitarian Data Portal has been revived and will now update on a daily basis.
+summary: The IATI Humanitarian Data Portal has been revived by Emergentally and will now update on a daily basis.
 ---
 As many colleagues will be aware, Development Initiatives ceased operations in October 2024. The Humportal then stopped updating on 7th January 2025.
 
