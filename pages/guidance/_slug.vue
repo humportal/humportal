@@ -60,5 +60,17 @@ export default {
     const docs = await $content("guidance").fetch()
     return { doc, docs };
   },
+  head() {
+    return {
+      title: this.doc?.title ? `${this.doc.title} | IATI Humanitarian Data Portal` : `IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.doc?.description ? this.doc.description : `The IATI Humanitarian Data Portal - or Humportal - tracks the quality of data published by Grand Bargain signatories.`
+        }
+      ]
+    }
+  }
 };
 </script>

@@ -97,6 +97,18 @@ export default {
   data() {
     return {
     }
+  },
+  head() {
+    return {
+      title: `Core Commitment Target Results and Indicators (CCTRIs) | IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'The Grand Bargain Transparency Workstream’s core commitment and corresponding target indicators and results (CCTRI).'
+        }
+      ]
+    }
   }
 }
 </script>

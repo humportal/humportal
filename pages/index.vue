@@ -81,6 +81,17 @@ export default {
     await this.$store.dispatch('loadHomepageStats')
     await this.$store.dispatch('loadMetadata')
     this.busy = false
+  },
+  head() {
+    return {
+      title: `IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: `The IATI Humanitarian Data Portal - or Humportal - tracks the quality of data published by Grand Bargain signatories.`
+        }
+      ]
+    }
   }
 }
 </script>

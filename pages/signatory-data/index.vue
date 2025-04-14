@@ -41,7 +41,7 @@
               'cell(humData)', 'cell(202HumData)', 'cell(203HumData)',
               'cell(traceability)', 'cell(monthly)']">
               <font-awesome-icon :icon="['fas', 'check']" v-if="data.value==true" />
-              <font-awesome-icon :icon="['fas', 'times']" class="text-muted" v-else />
+              <font-awesome-icon :icon="['fas', 'xmark']" class="text-muted" v-else />
             </template>
           </b-table>
       </b-col>
@@ -122,6 +122,18 @@ export default {
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
     this.busy = false
+  },
+  head() {
+    return {
+      title: `Signatory Data | IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'An overview of the IATI data currently published by individual Grand Bargain signatories and/or their affiliated organisations.'
+        }
+      ]
+    }
   }
 }
 </script>

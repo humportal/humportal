@@ -394,6 +394,18 @@ export default {
     this.$store.dispatch('loadOrganisationRegistrationAgencyData')
     this.$store.dispatch('loadCountriesData')
     this.busy = false
+  },
+  head() {
+    return {
+      title: this.publisher?.name ? `${this.publisher.name } | Signatory Data | IATI Humanitarian Data Portal` : `Signatory Data | IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `An overview of the IATI data currently published by ${this.publisher?.name}.`
+        }
+      ]
+    }
   }
 }
 </script>

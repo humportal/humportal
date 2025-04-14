@@ -29,8 +29,18 @@ export default {
       blog
     }
   },
- 
-
+  head() {
+    return {
+      title: this.blog?.title ? `${this.blog.title} | IATI Humanitarian Data Portal` : `IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blog?.description ? this.blog.description : `The IATI Humanitarian Data Portal - or Humportal - tracks the quality of data published by Grand Bargain signatories.`
+        }
+      ]
+    }
+  }
 }
 </script>
 <style scoped>

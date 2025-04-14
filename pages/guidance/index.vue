@@ -23,5 +23,17 @@ export default {
     const documents = await $content("guidance").fetch()
     return { documents };
   },
+  head() {
+    return {
+      title: `Guidance | IATI Humanitarian Data Portal`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Guidance notes on how to publish and use IATI data from the technical leads of the Grand Bargain Transparency Workstream.'
+        }
+      ]
+    }
+  }
 };
 </script>

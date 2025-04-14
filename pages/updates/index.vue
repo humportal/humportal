@@ -15,6 +15,20 @@ export default {
         .fetch()
         return { blogs }
     },
-    
+    components: {
+      BlogList
+    },
+    head() {
+      return {
+        title: `Updates | IATI Humanitarian Data Portal`,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Updates from the Grand Bargain Transparency Workstream'
+          }
+        ]
+      }
+    }
 }
 </script>
