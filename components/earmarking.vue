@@ -95,7 +95,7 @@ export default {
   methods: {
     async loadEarmarkingMapping() {
       const { data } = await axios
-        .get(`https://raw.githubusercontent.com/humportal/humportal-dev/gh-pages/gb_earmarking_mapping.json`)
+        .get(`https://humportal.org/gb_earmarking_mapping.json`)
       this.earmarkingMapping = data.reduce((summary, item) => {
         summary[item.Code] = item['GB Earmarking']
         return summary
