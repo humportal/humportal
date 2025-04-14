@@ -2,7 +2,7 @@
     <b-row style="margin-top: 50px" align-h="center">
         <b-card-group v-for="blog of dataList" :key="blog.slug" column>
                 <b-card style="max-width: 20rem;" class="mb-2 blog-card mx-1" >
-                    <b-card-img-lazy :src="blog.image" class="card-img" top />
+                    <b-card-img-lazy :src="blog.image" class="card-img" top v-if="blog.image" />
                     <b-card-title class="text-monospace lead font-weight-bold">{{ blog.title }}</b-card-title>
                     <b-card-text class="card-text ">
                         <b-badge variant="dark">{{new Date(blog.date).toDateString() }}</b-badge>
