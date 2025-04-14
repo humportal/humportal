@@ -53,10 +53,10 @@ export default {
         "faInfoCircle",
         "faQuestionCircle",
         "faDownload",
-        "faExternalLinkAlt",
         "faFlask",
         "faCommentDots",
-        "faComments"
+        "faComments",
+        'faUpRightFromSquare',
       ],
       brands: ['faTwitter', 'faMastodon', 'faBluesky']
     },

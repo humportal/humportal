@@ -25,7 +25,7 @@ variant="primary"
 :to="{path:'/guidance/'}">Read the guidance documents</b-btn> <b-btn
 class="mb-1"
 variant="primary"
-href="https://iaticonnect.org/topic/new-guidance-notes-publishing-and-using-humanitarian-iati-data-monitor-grand-bargain">Provide feedback on IATI Connect <font-awesome-icon :icon="['fas', 'external-link-alt']" class="mr-2"/></b-btn>
+href="https://iaticonnect.org/topic/new-guidance-notes-publishing-and-using-humanitarian-iati-data-monitor-grand-bargain">Provide feedback on IATI Connect <font-awesome-icon :icon="['fas', 'up-right-from-square']" class="mr-2"/></b-btn>
 
 
 For further information or to get in touch, contact <a href="mailto:humportal@devinit.org">humportal@devinit.org</a>

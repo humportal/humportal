@@ -10,8 +10,8 @@
           <h1>{{ publisher.name }}</h1>
         </b-col>
         <b-col md="3" class="ml-auto text-md-right">
-          <b-btn size="sm" class="mb-2" :href="`http://d-portal.org/ctrack.html?reporting_ref=${publisher.iatiOrganisationID}#view=main`">View data on D-Portal <font-awesome-icon :icon="['fas', 'external-link-alt']" /></b-btn>
-          <b-btn size="sm" class="mb-2" :href="`https://countrydata.iatistandard.org/data/reporting-organisation/${publisher.iatiOrganisationID}/`">View data on IATI Country Development Finance Data Tool <font-awesome-icon :icon="['fas', 'external-link-alt']" /></b-btn>
+          <b-btn size="sm" class="mb-2" :href="`http://d-portal.org/ctrack.html?reporting_ref=${publisher.iatiOrganisationID}#view=main`">View data on D-Portal <font-awesome-icon :icon="['fas', 'up-right-from-square']" /></b-btn>
+          <b-btn size="sm" class="mb-2" :href="`https://countrydata.iatistandard.org/data/reporting-organisation/${publisher.iatiOrganisationID}/`">View data on IATI Country Development Finance Data Tool <font-awesome-icon :icon="['fas', 'up-right-from-square']" /></b-btn>
         </b-col>
       </b-row>
       <b-row>

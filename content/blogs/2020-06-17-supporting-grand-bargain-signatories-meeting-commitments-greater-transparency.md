@@ -2,7 +2,7 @@
 title: Supporting Grand Bargain signatories in meeting commitments to greater transparency
 date: 2020-06-17
 image:
-url: https://devinit.org/resources/supporting-grand-bargain-signatories-meeting-commitments-greater-transparency/
+url: https://devinit.github.io/resources/supporting-grand-bargain-signatories-meeting-commitments-greater-transparency/
 category: blog
 summary: Report summarising progress on Grand Bargain Commitments since 2017.
 ---

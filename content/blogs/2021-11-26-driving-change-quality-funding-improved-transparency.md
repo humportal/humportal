@@ -2,7 +2,7 @@
 title: Driving change in quality funding with improved transparency
 date: 2021-07-27
 image:
-url: https://devinit.org/blog/driving-change-quality-funding-improved-transparency/
+url: https://devinit.github.io/blog/driving-change-quality-funding-improved-transparency/
 category: blog
 summary: Ensuring that the right data and systems are available to help achieve a critical mass of quality humanitarian funding and monitor progress towards this goal.
 ---

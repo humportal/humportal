@@ -2,7 +2,7 @@
 title: Improving the visibility of local and national actors in humanitarian aid data
 date: 2021-07-26
 image:
-url: https://devinit.org/resources/improving-visibility-local-national-actors-humanitarian-aid-data/
+url: https://devinit.github.io/resources/improving-visibility-local-national-actors-humanitarian-aid-data/
 category: blog
 summary: Report exploring technical options for increasing the visibility of local and national actors in International Aid Transparency Initiative (IATI) data.
 ---
