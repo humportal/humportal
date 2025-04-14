@@ -23,7 +23,7 @@
     </b-progress>
     <p>{{ ((aidTypesTotals / activitiesOrTransactionsValue) * 100).toFixed(0) }}% of this publisher’s {{ activitiesOrTransactions }} use OECD DAC Aid Type codes.</p>
     <p><font-awesome-icon :icon="['fas', 'check-circle']" class="text-success" v-if="granularAidTypes > 0" />
-      <font-awesome-icon :icon="['fas', 'times-circle']" class="text-muted" v-else />
+      <font-awesome-icon :icon="['fas', 'circle-xmark']" class="text-muted" v-else />
      {{ granularAidTypes }} of this publisher’s {{ activitiesOrTransactions }} are using the new more granular aid types.</p>
 
     <p class="text-muted font-italic text-md-right">Last calculated: {{ lastUpdated }}</p>
